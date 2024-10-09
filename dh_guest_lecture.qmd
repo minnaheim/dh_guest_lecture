@@ -1,0 +1,66 @@
+---
+title: "Guest Lecture: Open Time Series Initiative"
+format: revealjs
+---
+
+## About me 
+:::: {.columns}
+
+::: {.column width=60%}
+- graduated from my bachelor's in economics at HSG just 20 days ago 
+- pursuing a MSc Data Science with a minor in Economics UZH
+- work at the Swiss Economic Institute at ETH
+
+:::
+
+::: {.column width=40%}
+![](muster_bild.jpeg)
+<!-- insert graduation picture -->
+
+<!-- with this presentation, want to give more context into what you have been learning and one of the multitude of things you could do with data handling-->
+:::
+::::
+
+# Why am I here today?
+
+<!-- My team and I at KOF-ETH are working on a framework that makes public data more machine readable. But what does this even mean?
+
+To answer this question, we will cover a bit of what you've learnt in class, and we'll put this into context -->
+
+
+## What you've learnt till now
+
+- different data for different purposes
+- xml, html, csv, etc. (csv for structural data, json / nested data for non-structural data, higher level information)
+- sounds easy so far...
+
+## In Practice
+- Most data accessible to you and me is due to public data providers (BFS, SECO, etc.)
+- but since their data customers are so diverse, they sometimes publish in weird formats...
+
+## Case Study BFS
+- cater to the general public - people interested in data, but also researchers, etc. 
+# .px data
+
+<!-- example of pdf data, px data -->
+
+## A Researcher's Perspective
+- data importing, handling and cleaning is most of the work
+- by simplifying the process of data importing and cleaning, we could save researchers a lot of time
+
+## So, what does Opentsi do?
+- focussed on time series
+- splits .px data into two types of files: csv & json
+
+
+## If you're interested in collaboration
+- find us on...
+- contact me through...
+
+
+<!-- insert illustractions of:
+- time series data 
+- meta data
+- csv data 
+- transformation 
+-->
