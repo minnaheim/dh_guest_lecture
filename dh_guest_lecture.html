@@ -28,6 +28,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="dh_guest_lecture_files/libs/revealjs/dist/theme/quarto.css">
   <link href="dh_guest_lecture_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -336,6 +401,7 @@
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
+<li>took this course 3 years ago!</li>
 <li>graduated from my bachelor’s in economics at HSG just 20 days ago</li>
 <li>pursuing a MSc Data Science with a minor in Economics UZH</li>
 <li>work at the Swiss Economic Institute at ETH</li>
@@ -371,8 +437,10 @@ To answer this question, we will cover a bit of what you've learnt in class, and
 <section id="case-study-bfs" class="slide level2">
 <h2>Case Study BFS</h2>
 <ul>
-<li>cater to the general public - people interested in data, but also researchers, etc. # .px data</li>
+<li>cater to the general public - people interested in data, but also researchers, etc.</li>
+<li>what the hell is .px data - i didnt know either, with swissdata you dont need to… <!-- example of .px data --></li>
 </ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>import px data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!-- example of pdf data, px data -->
 </section>
 <section id="a-researchers-perspective" class="slide level2">
@@ -385,8 +453,75 @@ To answer this question, we will cover a bit of what you've learnt in class, and
 <section id="so-what-does-opentsi-do" class="slide level2">
 <h2>So, what does Opentsi do?</h2>
 <ul>
-<li>focussed on time series</li>
+<li>framework which not only makes time series data more machine readable, but also aims to make the storage of time series vintages better…</li>
+</ul>
+</section>
+<section id="illustration-of-splitting-data" class="slide level2">
+<h2>illustration of splitting data</h2>
+<!-- instead of showing code, i could do a little demo, pretend you are a researcher... -->
+</section></section>
+<section id="under-the-hood" class="title-slide slide level1 center">
+<h1>Under the hood</h1>
+
+</section>
+
+<section>
+<section id="so-fresh-so-clean" class="title-slide slide level1 center">
+<h1>So Fresh, So Clean</h1>
+<ul>
 <li>splits .px data into two types of files: csv &amp; json</li>
+</ul>
+</section>
+<section id="get-bfs-time-series" class="slide level2">
+<h2>Get BFS Time Series</h2>
+<p>The regular procedure would be the following:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">library</span>(readxl)</span>
+<span id="cb2-2"><a href=""></a>cpi <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"cpi_regular.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 516
+  Landesindex der Konsument…¹ ...2  ...3  ...4  ...5  `Index, Monatswerte` ...7 
+  &lt;chr&gt;                       &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;                &lt;chr&gt;
+1 Warenkorbstruktur 2020      &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  Indice, valeurs men… &lt;NA&gt; 
+2 Basis Dezember 2020=100     &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  Indice, valori mens… &lt;NA&gt; 
+3 Code                        PosNo PosT… Level COIC… Position_D           PosT…
+4 100_100                     100   1     1     &lt;NA&gt;  Total                Total
+5 100_1                       1     2     2     '01   Nahrungsmittel und … Nahr…
+6 100_1001                    1001  3     3     '01.1 Nahrungsmittel       Nahr…
+# ℹ abbreviated name: ¹​`Landesindex der Konsumentenpreise`
+# ℹ 509 more variables: `Indice des prix à la consommation` &lt;chr&gt;, ...9 &lt;chr&gt;,
+#   `Indice nazionale dei prezzi al consumo` &lt;chr&gt;, ...11 &lt;chr&gt;,
+#   `Swiss Consumer Price Index` &lt;chr&gt;, ...13 &lt;chr&gt;, Gewicht &lt;chr&gt;,
+#   `© Bundesamt für Statistik, Espace de l'Europe 10, CH-2010 Neuchâtel` &lt;chr&gt;,
+#   ...16 &lt;chr&gt;, ...17 &lt;chr&gt;, ...18 &lt;chr&gt;, ...19 &lt;chr&gt;, ...20 &lt;chr&gt;,
+#   ...21 &lt;chr&gt;, ...22 &lt;chr&gt;, ...23 &lt;chr&gt;, ...24 &lt;chr&gt;, ...25 &lt;chr&gt;, …</code></pre>
+</div>
+</div>
+</section>
+<section id="with-open-time-series" class="slide level2">
+<h2>With Open Time Series</h2>
+<p>The procedure would be the following:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># create folder structure to save data</span></span>
+<span id="cb4-2"><a href=""></a><span class="fu">options</span>(<span class="at">swissdata.wd =</span> <span class="st">"../swissdata"</span>)</span>
+<span id="cb4-3"><a href=""></a><span class="fu">set_update_all</span>()</span>
+<span id="cb4-4"><a href=""></a><span class="fu">library</span>(devtools)</span>
+<span id="cb4-5"><a href=""></a><span class="fu">install_github</span>(<span class="st">"mbannert/swissdata"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- only read_swissdata_meta() has documentation?
+cpi_2 <- download_fso_excel(32767551)
+view(cpi_2) # didnt work, i just get /var/folders/... -->
+</section>
+<section id="before-.px" class="slide level2">
+<h2>before: .px</h2>
+</section>
+<section id="after-.csv-.json" class="slide level2">
+<h2>after: .csv &amp; .json</h2>
+</section></section>
+<section>
+<section id="delorean---time-machine" class="title-slide slide level1 center">
+<h1>DeloRean - Time Machine</h1>
+<ul>
+<li>time series data vintages for forecasting</li>
+<li>storing in an academic way, low budget &amp; open source</li>
 </ul>
 </section>
 <section id="if-youre-interested-in-collaboration" class="slide level2">
@@ -394,6 +529,7 @@ To answer this question, we will cover a bit of what you've learnt in class, and
 <ul>
 <li>find us on…</li>
 <li>contact me through…</li>
+<li>use this for your thesis?</li>
 </ul>
 <!-- insert illustractions of:
 - time series data 
@@ -617,6 +753,44 @@ To answer this question, we will cover a bit of what you've learnt in class, and
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
