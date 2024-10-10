@@ -1,112 +1,134 @@
----
-title: "Guest Lecture: Open Time Series Initiative"
-format: 
-  revealjs:
-    slide-number: true
-    logo: images/rseed-pos.png
-    css: styles/logo.css
----
-
-## Intro {visibility="hidden"}
-<!-- i am here today to give you a bit of context into what you've learnt so far in this course, the perspective of how data is used in research, and what problems a researcher might encounter  -->
-
-## About me 
-<!-- you might ask yourself, why am I standing here today and talking to you about this. -->
-:::: {.columns}
-::: {.column width=70%}
-- took this course 3 years ago!
-- graduated from my bachelor's in economics at HSG just 20 days ago 
-- pursuing a MSc Data Science with a minor in Economics UZH
-- work at RSEED at KOF-ETH
-
-<!-- at my work at the swiss economic institute at eth, i have a lot of contact with researchers, and we are responsible for making their research go more smoothly and providing tools and courses to enable them to work with data better.  -->
-:::
-
-::: {.column width=30%}
-![](images/minna_computer.jpg)
-:::
-::::
-
-# Open Time Series Initiative
-<!-- one of the projects my team and i are currently working on, is the open time series initiative, which does just that, it aims to not only improve researchers' access to time series data, but also improve the machien reability of this data -->
-making time series data more machine readable and accessible
-
-<!-- But what does that even mean? I will try to illustrate this to you by showing you 2 examples of problems that our researchers face, and how we try to solve them. -->
-
-# Example 1:
-**Making Public Data more machine readable**
-
-<!-- The first example of what researchers face day to day, and how we try to aid them, is when researchers import and cleaning data. Public data providers like BFS, SECO, SNB, etc. cater to the general public, meaning they publish data so that it is suitable for the general public to see and understand, but this sometimes comes at the cost of researchers, who need data to be in a certain formats -->
-
-## Quick Revision:
-
-- data has different structure depending on its purpose
-- structured data: time series data
-- unstructured data: text
-
-<!-- as you have learnt so far in this course, data comes in different types: such as html, xml, csv, etc. and that for a good reason, since data has different structure depending on its purpose can be structured and unstructured -->
-
-<!-- TODO: figure out what knowledge basis students have, how far in depth to go with time series data and data type revision -->
-
-## Public Data providers cater to all
-![](images/public_data_providers.jpeg)
-
-<!-- sometimes public data providers publish data in pdf format, or in uncommon formats like .px or excel format, in an effort to include both the actual time series data (which is just a long column of values, with the respective dates) and the description of variables in all national languages, which, in switzerland is a lot of languages and thus descriptions  -->
-
-## Researchers require structure
-![](images/researchers.jpeg)
-
-<!-- researchers, however, need the two data seperated, the data description in one file and the actual data in another, with each data stored in a suitable file format  -->
-
-## Open Time Series provides the connection
-![](images/combined_ill.jpeg)
-
-<!-- this is where opentimeseries comes into play. we provide the connection between the data publications in odd formats and the required formats for researchers, by creating functions that split the data from files such as .px or .xlsx into files on the right hand side, where each data has its correct structure for researchers to easily clean, analyse and visualise -->
-
-
-<!-- Because these illustrations help you understand this conceptually, but not entirely, I want to give you an example of what this could look like in real life -->
-
-## Regular .px File
-```{r}
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 library(pxR)
 library(tidyverse)
 bapau_reg <- read.px("../swissdata/ch.fso.bapau/download/ch.bfs.bapau.px")
 print(bapau_reg)
-```
-
-## Using Opentimeseries
-
-Part 1: Time Series Data
-
-```{r}
+#
+#
+#
+#
+#
+#
+#
 library(tidyverse)
 bapau <- read.csv("../swissdata/ch.fso.bapau/ch.fso.bapau.csv")
 
 head(bapau)
-```
-
-## Using Opentimeseries
-
-Part 2: Meta Data
-
-```{r}
+#
+#
+#
+#
+#
+#
+#
 library(yaml)
 bapau_meta <- yaml.load_file("../swissdata/ch.fso.bapau/ch.fso.bapau.yaml")
 print(bapau_meta)
-```
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+library(kofdata)
+library(forecast)
+library(astsa)
 
-# Example 2: 
-**Forecasting with time series vintages**
+global <- kofdata::get_collection("globalbaro_vintages")
+global_0120 <- global$`globalbaro_coincident_2020-01`
+global_0620 <- global$`globalbaro_coincident_2020-06`
+two_ts <- ts.plot(ts(global_0120), ts(global_0620), col = c("cornflowerblue", "firebrick1"))
 
-## Forecasting with pre-covid data
-
-## Forecasting with post-covid data
-
-<!-- # DeloRean - Time Machine
-- time series data vintages for forecasting
-- storing in an academic way, low budget & open source -->
-
-## If you're interested in collaboration
-- find us on...
-- contact me through...
-- use this for your thesis?
+legend("topleft",
+  bty = "n", lty = c(1, 2), col = c("cornflowerblue", "firebrick1"),
+  legend = c("Global Barometer Jan-2020 Version", "Global Barometer July-2020 Version")
+)
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
