@@ -11,13 +11,13 @@ format:
 <!-- i am here today to give you a bit of context into what you've learnt so far in this course, the perspective of how data is used in research, and what problems a researcher might encounter  -->
 
 ## About me 
-<!-- you might ask yourself, why am I standing here today and talking to you about this. -->
+<!-- you might ask yourself, who I am and why I am here  -->
 :::: {.columns}
 ::: {.column width=70%}
-- took this course 3 years ago!
-- graduated from my bachelor's in economics at HSG just 20 days ago 
-- pursuing a MSc Data Science with a minor in Economics UZH
-- work at RSEED at KOF-ETH
+- I took this course 3 years ago!
+- just finished my bachelor in economics at HSG 20 days ago 
+- Doing an MSc in Data Science with a minor in Economics at UZH
+- Working at RSEED at KOF-ETH
 
 <!-- at my work at the swiss economic institute at eth, i have a lot of contact with researchers, and we are responsible for making their research go more smoothly and providing tools and courses to enable them to work with data better.  -->
 :::
@@ -28,8 +28,11 @@ format:
 ::::
 
 # Open Time Series Initiative
+
+<!-- Open Time Series Initiative as application example. -->
+
 <!-- one of the projects my team and i are currently working on, is the open time series initiative, which does just that, it aims to not only improve researchers' access to time series data, but also improve the machien reability of this data -->
-making time series data more machine readable and accessible
+Making time series data more machine-readable and accessible
 
 <!-- But what does that even mean? I will try to illustrate this to you by showing you 2 examples of problems that our researchers face, and how we try to solve them. -->
 
@@ -40,9 +43,9 @@ making time series data more machine readable and accessible
 
 ## Quick Revision:
 
-- data has different structure depending on its purpose
-- structured data: time series data
-- unstructured data: text
+- Data has a different structure depending on its purpose
+- Structured data: time series data
+- Unstructured data: text
 
 <!-- as you have learnt so far in this course, data comes in different types: such as html, xml, csv, etc. and that for a good reason, since data has different structure depending on its purpose can be structured and unstructured -->
 
@@ -70,6 +73,8 @@ sometimes public data providers publish data in pdf format, or in uncommon forma
 <!-- Because these illustrations help you understand this conceptually, but not entirely, I want to give you an example of what this could look like in real life -->
 
 ## Regular .xlsx File
+
+<!-- the challenge... all the stuff about public data providers and how Excel spreadsheet look like initially. -->
 ```{r}
 library(readxl)
 library(tidyverse)
@@ -79,6 +84,7 @@ print(adecco_xl)
 
 ## Using Opentimeseries
 
+<!-- nice time series chart easily read in and plotted with minimal R -->
 Part 1: Time Series Data
 
 ```{r}
@@ -127,8 +133,15 @@ legend("topleft",
 <!-- 
 But as you can imagine, having different versions of time series - monthly, daily, or yearly takes up a lot of space, and needs to be managed. this costs a lot of money, which is academia is not always given. thus with open time series we are developing a more efficient and cost effective way of storing these vintages -->
 
-## Thank you for your attention! 
-In case you are interested in collaboration or have any questions: 
+## Wrap Up!
+
+<!-- by not automating, you can loose the big picture and get caught in the small details -->
+
+- Automating these processes can save a lot of time! 
+- Although research may be niche, many people face the same problems - because they use the same data providers.
+
+## Thank you for your Attention! 
+If you are interested in working with us or have any questions: 
 
 - find us on [rseed.ch](https://rseed.ch)
 - contact me: [heim@kof.ethz.ch](mailto:heim@kof.ethz.ch)
