@@ -48,10 +48,13 @@ making time series data more machine readable and accessible
 
 <!-- TODO: figure out what knowledge basis students have, how far in depth to go with time series data and data type revision -->
 
-## Public Data providers cater to all
+## Public Data providers cater to the general public
 ![](images/public_data_providers.jpeg)
 
-<!-- sometimes public data providers publish data in pdf format, or in uncommon formats like .px or excel format, in an effort to include both the actual time series data (which is just a long column of values, with the respective dates) and the description of variables in all national languages, which, in switzerland is a lot of languages and thus descriptions  -->
+<!-- 
+swiss data providers publish only for the general public - those who look at data but not necessary use it, consumers such as researchers, data journalists, etc. are not always accounted for in these publications
+
+sometimes public data providers publish data in pdf format, or in uncommon formats like .px or excel format, in an effort to include both the actual time series data (which is just a long column of values, with the respective dates) and the description of variables in all national languages, which, in switzerland is a lot of languages and thus descriptions  -->
 
 ## Researchers require structure
 ![](images/researchers.jpeg)
@@ -66,12 +69,12 @@ making time series data more machine readable and accessible
 
 <!-- Because these illustrations help you understand this conceptually, but not entirely, I want to give you an example of what this could look like in real life -->
 
-## Regular .px File
+## Regular .xlsx File
 ```{r}
-library(pxR)
+library(readxl)
 library(tidyverse)
-bapau_reg <- read.px("../swissdata/ch.fso.bapau/download/ch.bfs.bapau.px")
-print(bapau_reg)
+adecco_xl <- read_excel("data/ch.adecco.sjmi/download/ch.adecco.sjmi.xlsx")
+print(adecco_xl)
 ```
 
 ## Using Opentimeseries
@@ -80,9 +83,8 @@ Part 1: Time Series Data
 
 ```{r}
 library(tidyverse)
-bapau <- read.csv("../swissdata/ch.fso.bapau/ch.fso.bapau.csv")
-
-head(bapau)
+adecco <- read.csv("data/ch.adecco.sjmi/ch.adecco.sjmi.csv")
+head(adecco)
 ```
 
 ## Using Opentimeseries
@@ -91,8 +93,8 @@ Part 2: Meta Data
 
 ```{r}
 library(yaml)
-bapau_meta <- yaml.load_file("../swissdata/ch.fso.bapau/ch.fso.bapau.yaml")
-print(bapau_meta)
+adecco_meta <- yaml.load_file("data/ch.adecco.sjmi/ch.adecco.sjmi.yaml")
+print(adecco_meta)
 ```
 
 # Example 2: 
