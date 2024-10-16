@@ -16,7 +16,7 @@ format:
 ::: {.column width=70%}
 - I took this course 3 years ago!
 - just finished my bachelor in economics at HSG 20 days ago 
-- Doing an MSc in Data Science with a minor in Economics at UZH
+- Doing an MSc in Data Science with a minor in Economics
 - Working at RSEED at KOF-ETH
 
 <!-- at my work at the swiss economic institute at eth, i have a lot of contact with researchers, and we are responsible for making their research go more smoothly and providing tools and courses to enable them to work with data better.  -->
@@ -41,11 +41,48 @@ Making time series data more machine-readable and accessible
 
 <!-- The first example of what researchers face day to day, and how we try to aid them, is when researchers import and cleaning data. Public data providers like BFS, SECO, SNB, etc. cater to the general public, meaning they publish data so that it is suitable for the general public to see and understand, but this sometimes comes at the cost of researchers, who need data to be in a certain formats -->
 
-## Quick Revision:
+## Quick Revision: Data Structures
 
 - Data has a different structure depending on its purpose
-- Structured data: time series data
-- Unstructured data: text
+- Rectangular data: tabular/spreadsheet like
+- Non-Rectangular data: complex/high dimensional
+
+## Quick Revision: Time Series Data
+<!-- within rectangular data you can also have different types of rectangular data: such as one row:observation with multiple variables (like you saw in your swiss dataset) -->
+- within Rectangular data, you can have additional specifications
+- regular tabular data: one unit (observation), multiple variables
+- time series data: one unit, at multiple time stamps
+
+
+## Quick Revision: Time Series Data
+```{r}
+library(tidyverse)
+swiss <- swiss |> select(-Infant.Mortality)
+head(swiss)
+```
+
+## Quick Revision: Time Series Data
+<!-- TODO: print part of ts, not all? -->
+```{r}
+library(kofdata)
+baro <- get_collection("ogd_ch.kof.barometer")
+head(baro)
+```
+
+## Quick Revision: Time Series Data
+<!-- TODO: print part of ts, not all? -->
+Time Series Dataset of hourly Pedestrian sightings
+```{r}
+library(fpp3)
+
+pedestrian <- pedestrian |>
+  filter(Sensor == "Birrarung Marr") |>
+  filter(Date == as.Date("2015-01-01")) |>
+  select(-c(Sensor, Date, Time))
+
+print(pedestrian)
+```
+
 
 <!-- as you have learnt so far in this course, data comes in different types: such as html, xml, csv, etc. and that for a good reason, since data has different structure depending on its purpose can be structured and unstructured -->
 
