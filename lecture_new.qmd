@@ -1,0 +1,136 @@
+---
+title: "Open Time Series Initiative"
+subtitle: "Non-Rectangular Data in Economic Research"
+format:
+  revealjs:
+    slide-number: true
+    logo: images/rseed-pos.png
+    css: styles/logo.css
+---
+
+## Intro {visibility="hidden"}
+<!-- Hello everybody, today I will be talking to you about data, as you have learnt about it until today, and I will try to help you put some of this knowledge into context, and show you how some of this data might be used in economic research -->
+```{r}
+library(yaml)
+library(tidyverse)
+```
+
+<!-- so you might be wondering, why am *I* talking to you about this? My Name is Minna, I am a master student in data science, pursuing a minor economics and exactly 3 years ago, I took this course! -->
+
+## About me 
+- I took this course 3 years ago!
+- just finished my bachelor in economics at HSG 20 days ago 
+- Doing an MSc in Data Science with a minor in Economics
+- Working at RSEED at KOF-ETH
+
+<!-- currently I work at KOF-ETH which is the Swiss Economic Institute at ETH, where we conduct research all kinds of economic research - about labor markets, monetary policy, and about the general outlook of the swiss economy. I work at the RSEED section, where we build software and teach people how to work with data to improve their research. 
+As you can imagine, we use a lot of data and also work with people who use and process a lot of data. -->
+
+<!-- In particular, we use time series data. I am 100% sure that each of you, have if not have used time series data, at least seen it -->
+
+## Monitoring the Swiss Economy {.smaller}
+::: {.panel-tabset}
+<!-- this is what time series look like when plotted. Conceptually, you can imagine it as rectangular data, so tabular, with values at different points in time. -->
+
+<!-- Here we are looking at a very specific time series, which is the global barometer: which is a KOF created system of indicators that enables a timely analysis of global economic development.  -->
+
+<!-- to creating this barometer, aka measure global economic development researchers need to take a lot of other data into consideration, which is 1000s of other time series data -->
+
+### Graph 
+```{r}
+library(kofdata)
+baro_vint <- get_collection("globalbaro_vintages")
+baro_20201 <- baro_vint$`globalbaro_leading_2020-01`
+baro_20210 <- baro_vint$`globalbaro_leading_2020-10`
+
+# visualize the 2020-01 version vs. 2020-10 version
+plot_both <- ts.plot(
+  baro_20210, baro_20201,
+  col = c("cornflowerblue", "firebrick1"),
+  gpars = list(
+    xlab = "Year",
+    ylab = "Value",
+    main = "Global Barometer - 2020-01 vs. 2020-10"
+  )
+)
+legend("topleft",
+  bty = "n",
+  lty = c(1, 2),
+  col = c("cornflowerblue", "firebrick1"),
+  legend = c("2020-10 Version", "2020-01 Version")
+)
+```
+
+### Code 
+
+<!-- if everything works out well, then this data is readily available, easy to import, cleaned and visualized in 20 lines of code like here: But since I am here to give you a more practical perspective of data handling, I can tell you that this is not the case -->
+
+```r
+library(kofdata)
+baro_vint <- get_collection("globalbaro_vintages")
+baro_20201 <- baro_vint$`globalbaro_leading_2020-01`
+baro_20210 <- baro_vint$`globalbaro_leading_2020-10`
+
+plot <- ts.plot(
+  baro_20210, baro_20201,
+  col = c("cornflowerblue", "firebrick1"),
+  gpars = list(
+    xlab = "Year",
+    ylab = "Value",
+    main = "Global Barometer Leading Index - 2020-01 vs. 2020-10"
+  )
+)
+legend("topleft",
+  bty = "n",
+  lty = c(1, 2),
+  col = c("cornflowerblue", "firebrick1"),
+  legend = c("2020-10 Version", "2020-01 Version")
+)
+```
+:::
+
+<!-- as a bit of background info, to work with csv data, researchers prefer working with csv data - as you've already learnt-->
+
+## Ideal for Research: CSV
+```{r}
+library(tidyverse)
+bapau <- read_csv("data/ch.fso.bapau/ch.fso.bapau.csv") |> select(-c(adjustment, trans, variable, section))
+head(bapau, 10)
+```
+
+## Ideal for Research: Meta Data
+```yaml
+title:
+  en: Adecco Swiss Job Market Index
+  de: Adecco Swiss Job Market Index
+  fr: Adecco Swiss Job Market Index
+  it: Adecco Swiss Job Market Index
+source.name:
+  en: University of Zürich
+  de: Universität Zürich
+  fr: Université de Zurich
+  it: Università di Zurigo
+source.url:
+- http://www.stellenmarktmonitor.uzh.ch/en/indices/asjmi.html
+units:
+  all:
+    en: Index, Base Q1 2008=100
+    de: Index, Basis Q1 2008=100
+    fr: Indice, Base Q1 2008=100
+    it: Indice, Base Q1 2008=100
+```
+## Reality: Public Data Providers {.smaller}
+::: {.panel-tabset}
+## Nominal Income 
+<!-- TODO: create layering images or colums/ panel tabset -->
+![](images/nominal_einkommen.png)
+
+## CPI
+![](images/cpi.png)
+
+## Import 
+![](images/import.png)
+
+:::
+
+## Reality: API's
