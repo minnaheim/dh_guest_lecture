@@ -15,7 +15,7 @@ library(ggplot2)
 library(fpp3)
 ```
 
-### Import & Inspect Alfred Data
+### Import & Inspect Data
 We import two different versions of the global KOF Barometer, one version from January 2020 and another from October 2020, to see how the COVID crisis changes the economic revisions.
 
 ```{r, import}

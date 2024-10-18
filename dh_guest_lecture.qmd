@@ -10,6 +10,15 @@ format:
 ## Intro {visibility="hidden"}
 <!-- i am here today to give you a bit of context into what you've learnt so far in this course, the perspective of how data is used in research, and what problems a researcher might encounter  -->
 
+```{r setup, include=FALSE}
+library(zoo)
+library(kofdata)
+library(tidyverse)
+library(forecast)
+library(ggplot2)
+library(fpp3)
+```
+
 ## About me 
 <!-- you might ask yourself, who I am and why I am here  -->
 :::: {.columns}
@@ -134,10 +143,31 @@ head(adecco)
 
 Part 2: Meta Data
 
-```{r}
+<!-- ```{r}
 library(yaml)
 adecco_meta <- yaml.load_file("data/ch.adecco.sjmi/ch.adecco.sjmi.yaml")
 print(adecco_meta)
+``` -->
+
+```yaml
+title:
+  en: Adecco Swiss Job Market Index
+  de: Adecco Swiss Job Market Index
+  fr: Adecco Swiss Job Market Index
+  it: Adecco Swiss Job Market Index
+source.name:
+  en: University of Zürich
+  de: Universität Zürich
+  fr: Université de Zurich
+  it: Università di Zurigo
+source.url:
+- http://www.stellenmarktmonitor.uzh.ch/en/indices/asjmi.html
+units:
+  all:
+    en: Index, Base Q1 2008=100
+    de: Index, Basis Q1 2008=100
+    fr: Indice, Base Q1 2008=100
+    it: Indice, Base Q1 2008=100
 ```
 
 # Example 2: 
@@ -146,11 +176,104 @@ print(adecco_meta)
 
 <!-- most of the time, data once it is published is still not 100% accurate, and needs to be revised, there are so called different versions or time series vintages. Especially forecasters work with vintages, because they sometimes need to make make forecasts with past-data, to test how well their models work, e.g. but to do this, they need the most accurate data, which is in this case the version from this date in the past. if you were to create a ts-model of the past with data from today, then this is not entirely accurate. See this example: -->
 
+## Forecasting with Real Time Data
+- Forecasting is a vital part of economic research 
+- Time series data gets adjusted regularly -> has different versions (vintages)
+- To create the most accurate forecasts, researchers use data as it was at the time of forecasting, aka need to use the accurate version (vintage).
+
+<!-- but why do we need such accurate values for gdp: its important to use the data that was available at the time of decision making, because that's what people or companies used at the time of decision making -->
+
+<!-- But why is data revised? because the preliminary data is often just a (good) estimate and is thus subject to later revision  -->
+
+## Effect of Revised Data on Forecasts
+
+<!-- especially in the covid crisis, what people expected would happen during covid and what actually happened is miles apart -->
+
+<!-- TODO: example of gdp forecasts before and after covid? - mitch ts workshop? -->
+<!-- for this we use the KOF Global Barometer  -->
+<!-- Global Barometer - system of indicators that enables a timely analysis of global economic development. -->
+
+```{r}
+baro_vint <- get_collection("globalbaro_vintages")
+baro_20201 <- baro_vint$`globalbaro_leading_2020-01`
+baro_20210 <- baro_vint$`globalbaro_leading_2020-10`
+head(baro_20201)
+head(baro_20210)
+# differences in the data
+diff <- baro_20201 - baro_20210
+head(diff)
+```
+
+In just 10 months, the data has changed significantly, (in part due to the COVID-19 crisis).
+
 
 ## Barometer Versions: Before and During Covid-19
-
+::: {.panel-tabset}
 <!-- TODO: change time on the x-axis to years -->
+### graph 
 ```{r}
+# visualize the 2020-01 version vs. 2020-10 version
+plot_both <- ts.plot(
+  baro_20210, baro_20201,
+  col = c("cornflowerblue", "firebrick1"),
+  gpars = list(
+    xlab = "Year",
+    ylab = "Value",
+    main = "Global Barometer Leading Index - 2020-01 vs. 2020-10"
+  )
+)
+legend("topleft",
+  bty = "n",
+  lty = c(1, 2),
+  col = c("cornflowerblue", "firebrick1"),
+  legend = c("2020-10 Version", "2020-01 Version")
+)
+```
+
+### code 
+```r
+plot <- ts.plot(
+  baro_20210, baro_20201,
+  col = c("cornflowerblue", "firebrick1"),
+  gpars = list(
+    xlab = "Year",
+    ylab = "Value",
+    main = "Global Barometer Leading Index - 2020-01 vs. 2020-10"
+  )
+)
+legend("topleft",
+  bty = "n",
+  lty = c(1, 2),
+  col = c("cornflowerblue", "firebrick1"),
+  legend = c("2020-10 Version", "2020-01 Version")
+)
+```
+:::
+
+## Forecasting with Different Versions
+depending on which data to use, the best fitting model can be quite different
+::: {.panel-tabset}
+
+### forecast 2020-10
+```{r}
+baro_20201 <- diff(baro_20201)
+plot(baro_20201)
+aa <- auto.arima(baro_20201)
+aa
+checkresiduals(aa)
+```
+
+### forecast 2020-10
+```{r}
+
+```
+
+### code
+```{r}
+
+```
+:::
+<!-- ```{r}
 library(kofdata)
 library(forecast)
 library(astsa)
@@ -164,7 +287,7 @@ legend("topleft",
   bty = "n", lty = c(1, 2), col = c("cornflowerblue", "firebrick1"),
   legend = c("Global Barometer Jan-2020 Version", "Global Barometer July-2020 Version")
 )
-```
+``` -->
 
 <!-- TODO: find out if it is worth it to present a more complex topic vs. go more into depth on the first one -->
 <!-- 
