@@ -99,6 +99,8 @@ head(bapau, 10)
 ```
 
 ## Ideal for Research: Meta Data
+<!-- yaml although you haven't learnt about it yet, is quite similar to json data, it is also nested, but more readable that json, since it doesnt have all these brackets -->
+
 ```yaml
 title:
   en: Adecco Swiss Job Market Index
@@ -122,7 +124,6 @@ units:
 ## Reality: Public Data Providers {.smaller}
 ::: {.panel-tabset}
 ## Nominal Income 
-<!-- TODO: create layering images or colums/ panel tabset -->
 ![](images/nominal_einkommen.png)
 
 ## CPI
@@ -130,7 +131,101 @@ units:
 
 ## Import 
 ![](images/import.png)
+:::
+
+<!-- these excel sheets, although visually appealing and readable, lack consistency and machine readability (?).  Think about it, the patterns and techniques used to clean one spreadsheet are very different for the next -->
+
+<!-- and this is just the tip of the iceberg - in these cases, the people who published this data did it with good intent but the wrong execution. sometime there is the intent just to publish the data but not to make it usable (data in .pdf) -->
+
+## Reality: API'
+
+<!-- API's - application programming interfaces are software interemediaries that allow for communication between two applications - which among other things, allow you to get data from one place smoothly into your coding environment without needing to actually go onto a website to check if the data exists and download it. -->
+
+<!-- And API's are a very common tool in a data scientist's toolbox, but also in a reseachers toolbox, since working with data is made a lot easier! -->
+
+<!-- but why am I talking about APIs now. Well, as you will see in a quick demonstration, data fetched through an API is almost always in json data. So knowing how to work with json and other non-rectangular data is essential in working with data from APIs -->
+
+<!-- create a quick demonstration: go to arc/brave browser (where you can pretty print) and put in: http://datenservice.kof.ethz.ch/api/v1/public/ts?keys=ch.kof.barometer
+
+1. show data
+2. pretty print it 
+3. explain that this is what the data looks like that we get from apis-->
+
+::: {.panel-tabset}
+
+## Code
+```r
+library(httr)
+library(jsonlite)
+keys <- "ch.kof.barometer"
+
+url <- "https://datenservice.kof.ethz.ch/api/v1/public/ts"
+query <- list(keys = keys, df = "Y-m-d")
+
+response <- GET(url, query = query)
+data <- fromJSON(content(response, as = "text"))
+head(data)
+```
+## Execution
+
+```{r}
+library(httr)
+library(jsonlite)
+keys <- "ch.kof.barometer"
+
+url <- "https://datenservice.kof.ethz.ch/api/v1/public/ts"
+query <- list(keys = keys, df = "Y-m-d")
+
+response <- GET(url, query = query)
+data <- fromJSON(content(response, as = "text"))
+head(data)
+```
+:::
+
+<!-- TODO: einführung in API - kofdata statt deloRean besser -->
+
+## R package API Wrapper: kofdata 
+
+::: {.panel-tabset}
+## Time Series Data
+```{r}
+library(kofdata)
+ts <- get_time_series("ch.kof.barometer")
+head(ts)
+```
+
+## Meta Data
+```{r}
+library(kofdata)
+meta <- get_metadata("ch.kof.barometer")
+head(meta)
+```
+
+## Code 
+
+```r
+library(kofdata)
+ts <- get_time_series("ch.kof.barometer")
+meta <- get_metadata("ch.kof.barometer")
+# search for more keys of publicly available data
+# https://ts-explorer.kof.ethz.ch/guest/2c579efb-e75e-46de-9f68-014f8cb603f6
+head(ts)
+head(meta)
+```
 
 :::
 
-## Reality: API's
+## Separation of Concerns
+
+<!-- TODO: put this image further down-->
+<!-- TODO: check whether this should be last slide or before kofdata -->
+<!-- so what we are doing in the open time series initiative is this transformation from non-rectangular to rectangular data. We realise that researchers spend a lot of time transforming public data into something that is tidy, and so that they don't spend too much time with it, we try to create a package or framework that encompasses this, as a type of seperation of concerns -->
+
+![](images/combined_ill.jpeg)
+
+## Thank you for your Attention! 
+If you are interested in working with us or have any questions: 
+- find this presentation and the code on: https://github.com/minnaheim/dh_guest_lecture
+
+- find us on [rseed.ch](https://rseed.ch)
+- contact me: [heim@kof.ethz.ch](mailto:heim@kof.ethz.ch)
