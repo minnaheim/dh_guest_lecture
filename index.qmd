@@ -12,11 +12,6 @@ format:
 <!-- Hello everybody, today I will be talking to you about data, as you have learnt about it until today, and I will try to help you put some of this knowledge into context, and show you how some of this data might be used in economic research -->
 <!-- so you might be wondering, why am *I* talking to you about this? My Name is Minna, I am a master student in data science, pursuing a minor economics and exactly 3 years ago, I took this course! -->
 
-```{r, include = FALSE}
-install.packages(c("rmarkdown", "tidyverse", "kofdata"))
-```
-
-
 ## About me 
 - I took this course 3 years ago!
 - Just finished my Bachelor in Economics at HSG 20 days ago 
