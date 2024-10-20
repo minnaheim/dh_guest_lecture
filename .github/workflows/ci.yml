@@ -12,6 +12,10 @@ jobs:
     name: quarto_render
     runs-on: ubuntu-20.04
     steps:
+      - name: quarto_install
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.4.515
       - name: Render Quarto Project
         uses: quarto-dev/quarto-actions/render@v2
         with:
