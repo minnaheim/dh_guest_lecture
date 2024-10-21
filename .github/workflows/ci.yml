@@ -7,6 +7,9 @@ defaults:
     run:
         shell: bash
 
+permissions:
+  contents: write
+
 jobs:
   quarto:
     name: quarto_render
@@ -31,7 +34,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         if: github.ref == 'refs/heads/main'
         with:
-            token: ${{ secrets.GITHUB_TOKEN }}
+            # token: ${{ secrets.GITHUB_TOKEN }}
             branch: gh-pages
             folder: '.'
             clean: true
