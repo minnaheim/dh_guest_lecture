@@ -1,0 +1,307 @@
+---
+title: "Guest Lecture: Open Time Series Initiative"
+format: 
+  revealjs:
+    slide-number: true
+    logo: images/rseed-pos.png
+    css: styles/logo.css
+---
+
+## Intro {visibility="hidden"}
+<!-- i am here today to give you a bit of context into what you've learnt so far in this course, the perspective of how data is used in research, and what problems a researcher might encounter  -->
+
+```{r setup, include=FALSE}
+library(zoo)
+library(kofdata)
+library(tidyverse)
+library(forecast)
+library(ggplot2)
+library(fpp3)
+```
+
+## About me 
+<!-- you might ask yourself, who I am and why I am here  -->
+:::: {.columns}
+::: {.column width=70%}
+- I took this course 3 years ago!
+- just finished my bachelor in economics at HSG 20 days ago 
+- Doing an MSc in Data Science with a minor in Economics
+- Working at RSEED at KOF-ETH
+
+<!-- at my work at the swiss economic institute at eth, i have a lot of contact with researchers, and we are responsible for making their research go more smoothly and providing tools and courses to enable them to work with data better.  -->
+:::
+
+::: {.column width=30%}
+![](images/minna_computer.jpg)
+:::
+::::
+
+# Open Time Series Initiative
+
+<!-- Open Time Series Initiative as application example. -->
+
+<!-- one of the projects my team and i are currently working on, is the open time series initiative, which does just that, it aims to not only improve researchers' access to time series data, but also improve the machien reability of this data -->
+Making time series data more machine-readable and accessible
+
+<!-- But what does that even mean? I will try to illustrate this to you by showing you 2 examples of problems that our researchers face, and how we try to solve them. -->
+
+# Example 1:
+**Making Public Data more machine readable**
+
+<!-- The first example of what researchers face day to day, and how we try to aid them, is when researchers import and cleaning data. Public data providers like BFS, SECO, SNB, etc. cater to the general public, meaning they publish data so that it is suitable for the general public to see and understand, but this sometimes comes at the cost of researchers, who need data to be in a certain formats -->
+
+## Quick Revision: Data Structures
+
+- Data has a different structure depending on its purpose
+- Rectangular data: tabular/spreadsheet like
+- Non-Rectangular data: complex/high dimensional
+
+## Quick Revision: Time Series Data
+<!-- within rectangular data you can also have different types of rectangular data: such as one row:observation with multiple variables (like you saw in your swiss dataset) -->
+- within Rectangular data, you can have additional specifications
+- regular tabular data: one unit (observation), multiple variables
+- time series data: one unit, at multiple time stamps
+
+
+## Quick Revision: Time Series Data
+```{r}
+library(tidyverse)
+swiss <- swiss |> select(-Infant.Mortality)
+head(swiss)
+```
+
+## Quick Revision: Time Series Data
+<!-- TODO: print part of ts, not all? -->
+```{r}
+library(kofdata)
+baro <- get_collection("ogd_ch.kof.barometer")
+head(baro)
+```
+
+## Quick Revision: Time Series Data
+<!-- TODO: print part of ts, not all? -->
+Time Series Dataset of hourly Pedestrian sightings
+```{r}
+library(fpp3)
+
+pedestrian <- pedestrian |>
+  filter(Sensor == "Birrarung Marr") |>
+  filter(Date == as.Date("2015-01-01")) |>
+  select(-c(Sensor, Date, Time))
+
+print(pedestrian)
+```
+
+
+<!-- as you have learnt so far in this course, data comes in different types: such as html, xml, csv, etc. and that for a good reason, since data has different structure depending on its purpose can be structured and unstructured -->
+
+<!-- TODO: figure out what knowledge basis students have, how far in depth to go with time series data and data type revision -->
+
+## Public Data providers cater to the general public
+![](images/public_data_providers.jpeg)
+
+<!-- 
+swiss data providers publish only for the general public - those who look at data but not necessary use it, consumers such as researchers, data journalists, etc. are not always accounted for in these publications
+
+sometimes public data providers publish data in pdf format, or in uncommon formats like .px or excel format, in an effort to include both the actual time series data (which is just a long column of values, with the respective dates) and the description of variables in all national languages, which, in switzerland is a lot of languages and thus descriptions  -->
+
+## Researchers require structure
+![](images/researchers.jpeg)
+
+<!-- researchers, however, need the two data seperated, the data description in one file and the actual data in another, with each data stored in a suitable file format  -->
+
+## Open Time Series provides the connection
+![](images/combined_ill.jpeg)
+
+<!-- this is where opentimeseries comes into play. we provide the connection between the data publications in odd formats and the required formats for researchers, by creating functions that split the data from files such as .px or .xlsx into files on the right hand side, where each data has its correct structure for researchers to easily clean, analyse and visualise -->
+
+
+<!-- Because these illustrations help you understand this conceptually, but not entirely, I want to give you an example of what this could look like in real life -->
+
+## Regular .xlsx File
+
+<!-- the challenge... all the stuff about public data providers and how Excel spreadsheet look like initially. -->
+```{r}
+library(readxl)
+library(tidyverse)
+adecco_xl <- read_excel("data/ch.adecco.sjmi/download/ch.adecco.sjmi.xlsx")
+print(adecco_xl)
+```
+
+## Using Opentimeseries
+
+<!-- nice time series chart easily read in and plotted with minimal R -->
+Part 1: Time Series Data
+
+```{r}
+library(tidyverse)
+adecco <- read.csv("data/ch.adecco.sjmi/ch.adecco.sjmi.csv")
+head(adecco)
+```
+
+## Using Opentimeseries
+
+Part 2: Meta Data
+
+<!-- ```{r}
+library(yaml)
+adecco_meta <- yaml.load_file("data/ch.adecco.sjmi/ch.adecco.sjmi.yaml")
+print(adecco_meta)
+``` -->
+
+```yaml
+title:
+  en: Adecco Swiss Job Market Index
+  de: Adecco Swiss Job Market Index
+  fr: Adecco Swiss Job Market Index
+  it: Adecco Swiss Job Market Index
+source.name:
+  en: University of Zürich
+  de: Universität Zürich
+  fr: Université de Zurich
+  it: Università di Zurigo
+source.url:
+- http://www.stellenmarktmonitor.uzh.ch/en/indices/asjmi.html
+units:
+  all:
+    en: Index, Base Q1 2008=100
+    de: Index, Basis Q1 2008=100
+    fr: Indice, Base Q1 2008=100
+    it: Indice, Base Q1 2008=100
+```
+
+# Example 2: 
+**Forecasting with time series vintages**
+<!-- another vital part of economic research is forecasting, which is also done with time series data. There are many factors that play into good forecasting, like correct models, and clean data, but moreover the accuracy of data. -->
+
+<!-- most of the time, data once it is published is still not 100% accurate, and needs to be revised, there are so called different versions or time series vintages. Especially forecasters work with vintages, because they sometimes need to make make forecasts with past-data, to test how well their models work, e.g. but to do this, they need the most accurate data, which is in this case the version from this date in the past. if you were to create a ts-model of the past with data from today, then this is not entirely accurate. See this example: -->
+
+## Forecasting with Real Time Data
+- Forecasting is a vital part of economic research 
+- Time series data gets adjusted regularly -> has different versions (vintages)
+- To create the most accurate forecasts, researchers use data as it was at the time of forecasting, aka need to use the accurate version (vintage).
+
+<!-- but why do we need such accurate values for gdp: its important to use the data that was available at the time of decision making, because that's what people or companies used at the time of decision making -->
+
+<!-- But why is data revised? because the preliminary data is often just a (good) estimate and is thus subject to later revision  -->
+
+## Effect of Revised Data on Forecasts
+
+<!-- especially in the covid crisis, what people expected would happen during covid and what actually happened is miles apart -->
+
+<!-- TODO: example of gdp forecasts before and after covid? - mitch ts workshop? -->
+<!-- for this we use the KOF Global Barometer  -->
+<!-- Global Barometer - system of indicators that enables a timely analysis of global economic development. -->
+
+```{r}
+baro_vint <- get_collection("globalbaro_vintages")
+baro_20201 <- baro_vint$`globalbaro_leading_2020-01`
+baro_20210 <- baro_vint$`globalbaro_leading_2020-10`
+head(baro_20201)
+head(baro_20210)
+# differences in the data
+diff <- baro_20201 - baro_20210
+head(diff)
+```
+
+In just 10 months, the data has changed significantly, (in part due to the COVID-19 crisis).
+
+
+## Barometer Versions: Before and During Covid-19
+::: {.panel-tabset}
+<!-- TODO: change time on the x-axis to years -->
+### graph 
+```{r}
+# visualize the 2020-01 version vs. 2020-10 version
+plot_both <- ts.plot(
+  baro_20210, baro_20201,
+  col = c("cornflowerblue", "firebrick1"),
+  gpars = list(
+    xlab = "Year",
+    ylab = "Value",
+    main = "Global Barometer Leading Index - 2020-01 vs. 2020-10"
+  )
+)
+legend("topleft",
+  bty = "n",
+  lty = c(1, 2),
+  col = c("cornflowerblue", "firebrick1"),
+  legend = c("2020-10 Version", "2020-01 Version")
+)
+```
+
+### code 
+```r
+plot <- ts.plot(
+  baro_20210, baro_20201,
+  col = c("cornflowerblue", "firebrick1"),
+  gpars = list(
+    xlab = "Year",
+    ylab = "Value",
+    main = "Global Barometer Leading Index - 2020-01 vs. 2020-10"
+  )
+)
+legend("topleft",
+  bty = "n",
+  lty = c(1, 2),
+  col = c("cornflowerblue", "firebrick1"),
+  legend = c("2020-10 Version", "2020-01 Version")
+)
+```
+:::
+
+## Forecasting with Different Versions
+depending on which data to use, the best fitting model can be quite different
+::: {.panel-tabset}
+
+### forecast 2020-10
+```{r}
+baro_20201 <- diff(baro_20201)
+plot(baro_20201)
+aa <- auto.arima(baro_20201)
+aa
+checkresiduals(aa)
+```
+
+### forecast 2020-10
+```{r}
+
+```
+
+### code
+```{r}
+
+```
+:::
+<!-- ```{r}
+library(kofdata)
+library(forecast)
+library(astsa)
+
+global <- kofdata::get_collection("globalbaro_vintages")
+global_0120 <- global$`globalbaro_coincident_2020-01`
+global_0620 <- global$`globalbaro_coincident_2020-06`
+two_ts <- ts.plot(ts(global_0120), ts(global_0620), col = c("cornflowerblue", "firebrick1"))
+
+legend("topleft",
+  bty = "n", lty = c(1, 2), col = c("cornflowerblue", "firebrick1"),
+  legend = c("Global Barometer Jan-2020 Version", "Global Barometer July-2020 Version")
+)
+``` -->
+
+<!-- TODO: find out if it is worth it to present a more complex topic vs. go more into depth on the first one -->
+<!-- 
+But as you can imagine, having different versions of time series - monthly, daily, or yearly takes up a lot of space, and needs to be managed. this costs a lot of money, which is academia is not always given. thus with open time series we are developing a more efficient and cost effective way of storing these vintages -->
+
+## Wrap Up!
+
+<!-- by not automating, you can loose the big picture and get caught in the small details -->
+
+- Automating these processes can save a lot of time! 
+- Although research may be niche, many people face the same problems - because they use the same data providers.
+
+## Thank you for your Attention! 
+If you are interested in working with us or have any questions: 
+
+- find us on [rseed.ch](https://rseed.ch)
+- contact me: [heim@kof.ethz.ch](mailto:heim@kof.ethz.ch)
