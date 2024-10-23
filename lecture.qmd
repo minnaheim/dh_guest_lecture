@@ -9,7 +9,7 @@ format:
 ---
 
 ## Intro {visibility="hidden"}
-```{r}
+```{r, hide=TRUE}
 install.packages("kofdata", repo = "https://stat.ethz.ch/CRAN/")
 ```
 
@@ -66,6 +66,8 @@ plot_both <- ts.plot(
     main = "Global Barometer of 2020-10"
   )
 )
+
+plot_both 
 ```
 
 ### Code 
