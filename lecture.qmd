@@ -6,6 +6,8 @@ format:
     slide-number: true
     logo: images/rseed-pos.png
     css: styles/logo.css
+  html:
+    embed-resources: true # self contained
 ---
 
 ## Intro {visibility="hidden"}
@@ -53,7 +55,7 @@ install.packages("kofdata", repo = "https://stat.ethz.ch/CRAN/")
 <!-- Here we are looking at a very specific time series, which is the global barometer: which is a KOF created system of indicators that enables a timely analysis of global economic development. To creating this barometer, aka measure global economic development researchers need to take a lot of other data into consideration, which is 1000s of other time series data -->
 
 ### Graph 
-```{r}
+```{r, hide = TRUE}
 library(kofdata)
 baro_vint <- get_collection("globalbaro_vintages")
 baro_20210 <- baro_vint$`globalbaro_leading_2020-10`
