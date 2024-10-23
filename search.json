@@ -18,7 +18,7 @@
     "href": "lecture.html#monitoring-the-swiss-economy",
     "title": "Guest Lecture",
     "section": "Monitoring the Swiss Economy",
-    "text": "Monitoring the Swiss Economy\n\nGraphCode\n\n\n\n\n\n\n\n\n\n\n\nNULL\n\n\n\n\n\nlibrary(kofdata)\nbaro_vint &lt;- get_collection(\"globalbaro_vintages\")\nbaro_20210 &lt;- baro_vint$`globalbaro_leading_2020-10`\n\nplot_both &lt;- ts.plot(\n  baro_20210,\n  gpars = list(\n    xlab = \"Year\",\n    ylab = \"Value\",\n    main = \"Global Barometer of 2020-10\"\n  )\n)"
+    "text": "Monitoring the Swiss Economy\n\nGraphCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlibrary(kofdata)\nbaro_vint &lt;- get_collection(\"globalbaro_vintages\")\nbaro_20210 &lt;- baro_vint$`globalbaro_leading_2020-10`\n\nplot_both &lt;- ts.plot(\n  baro_20210,\n  gpars = list(\n    xlab = \"Year\",\n    ylab = \"Value\",\n    main = \"Global Barometer of 2020-10\"\n  )\n)"
   },
   {
     "objectID": "lecture.html#ideal-for-research-csv",

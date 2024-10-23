@@ -431,7 +431,7 @@
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Graph</a></li><li><a href="#tabset-1-2">Code</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div class="cell" data-hide="true">
+<div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
@@ -439,25 +439,22 @@
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-stdout">
-<pre><code>NULL</code></pre>
-</div>
 </div>
 </div>
 <div id="tabset-1-2">
 <!-- if the data is readily available, easy to import and cleaned, then it can be and visualized in 13 lines of code like here: But since I am here to give you a more practical perspective of data handling, I can tell you that this is usually not the case -->
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(kofdata)</span>
-<span id="cb3-2"><a></a>baro_vint <span class="ot">&lt;-</span> <span class="fu">get_collection</span>(<span class="st">"globalbaro_vintages"</span>)</span>
-<span id="cb3-3"><a></a>baro_20210 <span class="ot">&lt;-</span> baro_vint<span class="sc">$</span><span class="st">`</span><span class="at">globalbaro_leading_2020-10</span><span class="st">`</span></span>
-<span id="cb3-4"><a></a></span>
-<span id="cb3-5"><a></a>plot_both <span class="ot">&lt;-</span> <span class="fu">ts.plot</span>(</span>
-<span id="cb3-6"><a></a>  baro_20210,</span>
-<span id="cb3-7"><a></a>  <span class="at">gpars =</span> <span class="fu">list</span>(</span>
-<span id="cb3-8"><a></a>    <span class="at">xlab =</span> <span class="st">"Year"</span>,</span>
-<span id="cb3-9"><a></a>    <span class="at">ylab =</span> <span class="st">"Value"</span>,</span>
-<span id="cb3-10"><a></a>    <span class="at">main =</span> <span class="st">"Global Barometer of 2020-10"</span></span>
-<span id="cb3-11"><a></a>  )</span>
-<span id="cb3-12"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(kofdata)</span>
+<span id="cb2-2"><a></a>baro_vint <span class="ot">&lt;-</span> <span class="fu">get_collection</span>(<span class="st">"globalbaro_vintages"</span>)</span>
+<span id="cb2-3"><a></a>baro_20210 <span class="ot">&lt;-</span> baro_vint<span class="sc">$</span><span class="st">`</span><span class="at">globalbaro_leading_2020-10</span><span class="st">`</span></span>
+<span id="cb2-4"><a></a></span>
+<span id="cb2-5"><a></a>plot_both <span class="ot">&lt;-</span> <span class="fu">ts.plot</span>(</span>
+<span id="cb2-6"><a></a>  baro_20210,</span>
+<span id="cb2-7"><a></a>  <span class="at">gpars =</span> <span class="fu">list</span>(</span>
+<span id="cb2-8"><a></a>    <span class="at">xlab =</span> <span class="st">"Year"</span>,</span>
+<span id="cb2-9"><a></a>    <span class="at">ylab =</span> <span class="st">"Value"</span>,</span>
+<span id="cb2-10"><a></a>    <span class="at">main =</span> <span class="st">"Global Barometer of 2020-10"</span></span>
+<span id="cb2-11"><a></a>  )</span>
+<span id="cb2-12"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -469,23 +466,23 @@
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Raw CSV</a></li><li><a href="#tabset-2-2">in R</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource csv number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a></a>adjustment,trans,variable,section,date,value</span>
-<span id="cb4-2"><a></a>brut,ind,ptot,41,1999-01-01,59.1370800939374</span>
-<span id="cb4-3"><a></a>brut,ind,ptot,41,1999-04-01,86.4005898178125</span>
-<span id="cb4-4"><a></a>brut,ind,ptot,41,1999-07-01,91.0748183923657</span>
-<span id="cb4-5"><a></a>brut,ind,ptot,41,1999-10-01,87.658240361848</span>
-<span id="cb4-6"><a></a>brut,ind,ptot,41,2000-01-01,64.8238003330359</span>
-<span id="cb4-7"><a></a>brut,ind,ptot,41,2000-04-01,86.3787996471447</span>
-<span id="cb4-8"><a></a>brut,ind,ptot,41,2000-07-01,89.9274833957628</span>
-<span id="cb4-9"><a></a>brut,ind,ptot,41,2000-10-01,85.7126629767177</span>
-<span id="cb4-10"><a></a>brut,ind,ptot,41,2001-01-01,64.7521097202243</span>
-<span id="cb4-11"><a></a>brut,ind,ptot,41,2001-04-01,83.713854309254</span>
-<span id="cb4-12"><a></a>brut,ind,ptot,41,2001-07-01,89.1017132230226</span>
-<span id="cb4-13"><a></a>brut,ind,ptot,41,2001-10-01,84.7488538412133</span>
-<span id="cb4-14"><a></a>brut,ind,ptot,41,2002-01-01,68.9360282923345</span>
-<span id="cb4-15"><a></a>brut,ind,ptot,41,2002-04-01,87.3890350828722</span>
-<span id="cb4-16"><a></a>brut,ind,ptot,41,2002-07-01,91.9010797688999</span>
-<span id="cb4-17"><a></a>brut,ind,ptot,41,2002-10-01,88.8656398791957</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource csv number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a></a>adjustment,trans,variable,section,date,value</span>
+<span id="cb3-2"><a></a>brut,ind,ptot,41,1999-01-01,59.1370800939374</span>
+<span id="cb3-3"><a></a>brut,ind,ptot,41,1999-04-01,86.4005898178125</span>
+<span id="cb3-4"><a></a>brut,ind,ptot,41,1999-07-01,91.0748183923657</span>
+<span id="cb3-5"><a></a>brut,ind,ptot,41,1999-10-01,87.658240361848</span>
+<span id="cb3-6"><a></a>brut,ind,ptot,41,2000-01-01,64.8238003330359</span>
+<span id="cb3-7"><a></a>brut,ind,ptot,41,2000-04-01,86.3787996471447</span>
+<span id="cb3-8"><a></a>brut,ind,ptot,41,2000-07-01,89.9274833957628</span>
+<span id="cb3-9"><a></a>brut,ind,ptot,41,2000-10-01,85.7126629767177</span>
+<span id="cb3-10"><a></a>brut,ind,ptot,41,2001-01-01,64.7521097202243</span>
+<span id="cb3-11"><a></a>brut,ind,ptot,41,2001-04-01,83.713854309254</span>
+<span id="cb3-12"><a></a>brut,ind,ptot,41,2001-07-01,89.1017132230226</span>
+<span id="cb3-13"><a></a>brut,ind,ptot,41,2001-10-01,84.7488538412133</span>
+<span id="cb3-14"><a></a>brut,ind,ptot,41,2002-01-01,68.9360282923345</span>
+<span id="cb3-15"><a></a>brut,ind,ptot,41,2002-04-01,87.3890350828722</span>
+<span id="cb3-16"><a></a>brut,ind,ptot,41,2002-07-01,91.9010797688999</span>
+<span id="cb3-17"><a></a>brut,ind,ptot,41,2002-10-01,88.8656398791957</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-2-2">
 <div class="cell">
@@ -517,24 +514,24 @@
 <ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Raw Yaml</a></li><li><a href="#tabset-3-2">Yaml in R</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1">
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a></a><span class="fu">title</span><span class="kw">:</span></span>
-<span id="cb6-2"><a></a><span class="at">  </span><span class="fu">en</span><span class="kw">:</span><span class="at"> Adecco Swiss Job Market Index</span></span>
-<span id="cb6-3"><a></a><span class="at">  </span><span class="fu">de</span><span class="kw">:</span><span class="at"> Adecco Swiss Job Market Index</span></span>
-<span id="cb6-4"><a></a><span class="at">  </span><span class="fu">fr</span><span class="kw">:</span><span class="at"> Adecco Swiss Job Market Index</span></span>
-<span id="cb6-5"><a></a><span class="at">  </span><span class="fu">it</span><span class="kw">:</span><span class="at"> Adecco Swiss Job Market Index</span></span>
-<span id="cb6-6"><a></a><span class="fu">source.name</span><span class="kw">:</span></span>
-<span id="cb6-7"><a></a><span class="at">  </span><span class="fu">en</span><span class="kw">:</span><span class="at"> University of Zürich</span></span>
-<span id="cb6-8"><a></a><span class="at">  </span><span class="fu">de</span><span class="kw">:</span><span class="at"> Universität Zürich</span></span>
-<span id="cb6-9"><a></a><span class="at">  </span><span class="fu">fr</span><span class="kw">:</span><span class="at"> Université de Zurich</span></span>
-<span id="cb6-10"><a></a><span class="at">  </span><span class="fu">it</span><span class="kw">:</span><span class="at"> Università di Zurigo</span></span>
-<span id="cb6-11"><a></a><span class="fu">source.url</span><span class="kw">:</span></span>
-<span id="cb6-12"><a></a><span class="kw">-</span><span class="at"> http://www.stellenmarktmonitor.uzh.ch/en/indices/asjmi.html</span></span>
-<span id="cb6-13"><a></a><span class="fu">units</span><span class="kw">:</span></span>
-<span id="cb6-14"><a></a><span class="at">  </span><span class="fu">all</span><span class="kw">:</span></span>
-<span id="cb6-15"><a></a><span class="at">    </span><span class="fu">en</span><span class="kw">:</span><span class="at"> Index, Base Q1 2008=100</span></span>
-<span id="cb6-16"><a></a><span class="at">    </span><span class="fu">de</span><span class="kw">:</span><span class="at"> Index, Basis Q1 2008=100</span></span>
-<span id="cb6-17"><a></a><span class="at">    </span><span class="fu">fr</span><span class="kw">:</span><span class="at"> Indice, Base Q1 2008=100</span></span>
-<span id="cb6-18"><a></a><span class="at">    </span><span class="fu">it</span><span class="kw">:</span><span class="at"> Indice, Base Q1 2008=100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a></a><span class="fu">title</span><span class="kw">:</span></span>
+<span id="cb5-2"><a></a><span class="at">  </span><span class="fu">en</span><span class="kw">:</span><span class="at"> Adecco Swiss Job Market Index</span></span>
+<span id="cb5-3"><a></a><span class="at">  </span><span class="fu">de</span><span class="kw">:</span><span class="at"> Adecco Swiss Job Market Index</span></span>
+<span id="cb5-4"><a></a><span class="at">  </span><span class="fu">fr</span><span class="kw">:</span><span class="at"> Adecco Swiss Job Market Index</span></span>
+<span id="cb5-5"><a></a><span class="at">  </span><span class="fu">it</span><span class="kw">:</span><span class="at"> Adecco Swiss Job Market Index</span></span>
+<span id="cb5-6"><a></a><span class="fu">source.name</span><span class="kw">:</span></span>
+<span id="cb5-7"><a></a><span class="at">  </span><span class="fu">en</span><span class="kw">:</span><span class="at"> University of Zürich</span></span>
+<span id="cb5-8"><a></a><span class="at">  </span><span class="fu">de</span><span class="kw">:</span><span class="at"> Universität Zürich</span></span>
+<span id="cb5-9"><a></a><span class="at">  </span><span class="fu">fr</span><span class="kw">:</span><span class="at"> Université de Zurich</span></span>
+<span id="cb5-10"><a></a><span class="at">  </span><span class="fu">it</span><span class="kw">:</span><span class="at"> Università di Zurigo</span></span>
+<span id="cb5-11"><a></a><span class="fu">source.url</span><span class="kw">:</span></span>
+<span id="cb5-12"><a></a><span class="kw">-</span><span class="at"> http://www.stellenmarktmonitor.uzh.ch/en/indices/asjmi.html</span></span>
+<span id="cb5-13"><a></a><span class="fu">units</span><span class="kw">:</span></span>
+<span id="cb5-14"><a></a><span class="at">  </span><span class="fu">all</span><span class="kw">:</span></span>
+<span id="cb5-15"><a></a><span class="at">    </span><span class="fu">en</span><span class="kw">:</span><span class="at"> Index, Base Q1 2008=100</span></span>
+<span id="cb5-16"><a></a><span class="at">    </span><span class="fu">de</span><span class="kw">:</span><span class="at"> Index, Basis Q1 2008=100</span></span>
+<span id="cb5-17"><a></a><span class="at">    </span><span class="fu">fr</span><span class="kw">:</span><span class="at"> Indice, Base Q1 2008=100</span></span>
+<span id="cb5-18"><a></a><span class="at">    </span><span class="fu">it</span><span class="kw">:</span><span class="at"> Indice, Base Q1 2008=100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-3-2">
 <div class="cell">
@@ -772,16 +769,16 @@ $sha1
 <ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Code</a></li><li><a href="#tabset-5-2">Execution</a></li></ul>
 <div class="tab-content">
 <div id="tabset-5-1">
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">library</span>(httr)</span>
-<span id="cb8-2"><a></a><span class="fu">library</span>(jsonlite)</span>
-<span id="cb8-3"><a></a>keys <span class="ot">&lt;-</span> <span class="st">"ch.kof.barometer"</span></span>
-<span id="cb8-4"><a></a></span>
-<span id="cb8-5"><a></a>url <span class="ot">&lt;-</span> <span class="st">"https://datenservice.kof.ethz.ch/api/v1/public/ts"</span></span>
-<span id="cb8-6"><a></a>query <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">keys =</span> keys, <span class="at">df =</span> <span class="st">"Y-m-d"</span>)</span>
-<span id="cb8-7"><a></a></span>
-<span id="cb8-8"><a></a>response <span class="ot">&lt;-</span> <span class="fu">GET</span>(url, <span class="at">query =</span> query)</span>
-<span id="cb8-9"><a></a>data <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="fu">content</span>(response, <span class="at">as =</span> <span class="st">"text"</span>))</span>
-<span id="cb8-10"><a></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(httr)</span>
+<span id="cb7-2"><a></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb7-3"><a></a>keys <span class="ot">&lt;-</span> <span class="st">"ch.kof.barometer"</span></span>
+<span id="cb7-4"><a></a></span>
+<span id="cb7-5"><a></a>url <span class="ot">&lt;-</span> <span class="st">"https://datenservice.kof.ethz.ch/api/v1/public/ts"</span></span>
+<span id="cb7-6"><a></a>query <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">keys =</span> keys, <span class="at">df =</span> <span class="st">"Y-m-d"</span>)</span>
+<span id="cb7-7"><a></a></span>
+<span id="cb7-8"><a></a>response <span class="ot">&lt;-</span> <span class="fu">GET</span>(url, <span class="at">query =</span> query)</span>
+<span id="cb7-9"><a></a>data <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="fu">content</span>(response, <span class="at">as =</span> <span class="st">"text"</span>))</span>
+<span id="cb7-10"><a></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-5-2">
 <div class="cell">
@@ -1303,13 +1300,13 @@ $ch.kof.barometer$variable
 </div>
 </div>
 <div id="tabset-6-3">
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">library</span>(kofdata)</span>
-<span id="cb12-2"><a></a>ts <span class="ot">&lt;-</span> <span class="fu">get_time_series</span>(<span class="st">"ch.kof.barometer"</span>)</span>
-<span id="cb12-3"><a></a>meta <span class="ot">&lt;-</span> <span class="fu">get_metadata</span>(<span class="st">"ch.kof.barometer"</span>)</span>
-<span id="cb12-4"><a></a><span class="co"># search for more keys of publicly available data</span></span>
-<span id="cb12-5"><a></a><span class="co"># https://ts-explorer.kof.ethz.ch/guest/2c579efb-e75e-46de-9f68-014f8cb603f6</span></span>
-<span id="cb12-6"><a></a><span class="fu">head</span>(ts)</span>
-<span id="cb12-7"><a></a><span class="fu">head</span>(meta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">library</span>(kofdata)</span>
+<span id="cb11-2"><a></a>ts <span class="ot">&lt;-</span> <span class="fu">get_time_series</span>(<span class="st">"ch.kof.barometer"</span>)</span>
+<span id="cb11-3"><a></a>meta <span class="ot">&lt;-</span> <span class="fu">get_metadata</span>(<span class="st">"ch.kof.barometer"</span>)</span>
+<span id="cb11-4"><a></a><span class="co"># search for more keys of publicly available data</span></span>
+<span id="cb11-5"><a></a><span class="co"># https://ts-explorer.kof.ethz.ch/guest/2c579efb-e75e-46de-9f68-014f8cb603f6</span></span>
+<span id="cb11-6"><a></a><span class="fu">head</span>(ts)</span>
+<span id="cb11-7"><a></a><span class="fu">head</span>(meta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
