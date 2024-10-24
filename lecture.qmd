@@ -15,8 +15,7 @@ format:
 install.packages("kofdata", repo = "https://stat.ethz.ch/CRAN/")
 ```
 
-<!-- Hello everybody, today I will be talking to you about data, as you have learnt about it until today, and I will try to help you put some of this knowledge into context, and show you how some of this data might be used in economic research -->
-<!-- so you might be wondering, why am *I* talking to you about this? My Name is Minna, I am a master student in data science, pursuing a minor economics and exactly 3 years ago, I took this course! -->
+<!-- Today I will be trying to give you some more practical insighs on non-rectangular data, and its usage inspecifically economic research.-->
 
 ## About me 
 - I took this course 3 years ago!
@@ -28,9 +27,13 @@ install.packages("kofdata", repo = "https://stat.ethz.ch/CRAN/")
 
 <!-- currently I work at KOF which is the Swiss Economic Institute at ETH, where we conduct research about the swiss and global economy. We research all kinds of fields, ranging from the state of the labour market to the swiss innovation capability. To do this, we work with all kinds of data: Data we collect and analyse and publish ourselves, like business tendency surveys, for example. --> 
 
-<!-- I work at the RSEED section, where we build software such as R packages for economic researchers and teach people how to work with data to improve their research. The course I am assisting in this semester is a PhD course where we teach students from non-programming backgrounds to programme with data, and other useful tools to enable collaboration and ease in research. -->
+<!-- I work at the RSEED section, where we build tools, such as software packages to help economic researchers and teach people how to work with data to improve their research. -->
+
+<!-- Among those things is hacking 4 science, which we teach at RSEED, It is a course which teaches non-computer science PhD students to use the open source ecosystem for their research -->
+
 
 <!-- As you can imagine, we use a lot of data and also work with people who use and process a lot of data. In particular, we use time series data. I am 100% sure that each of you, have if not have used time series data, at least seen it - e.g. stock prices!!-->
+
 
 :::: {.columns}
 ::: {.column width="40%"}
@@ -272,7 +275,20 @@ head(data)
 
 ## R Package API Wrapper: kofdata 
 
+<!-- this code snippet shows how to handle data that comes from an Application Programming Interface, designed for machine to machine communication, this data is in a very digestable format for machines -->
+
 ::: {.panel-tabset}
+
+## Code 
+
+```r
+library(kofdata)
+ts <- get_time_series("ch.kof.barometer")
+meta <- get_metadata("ch.kof.barometer")
+# search for more keys of publicly available data
+# https://ts-explorer.kof.ethz.ch/guest/2c579efb-e75e-46de-9f68-014f8cb603f6
+```
+
 ## Time Series Data
 ```{r}
 library(kofdata)
@@ -287,15 +303,6 @@ meta <- get_metadata("ch.kof.barometer")
 head(meta)
 ```
 
-## Code 
-
-```r
-library(kofdata)
-ts <- get_time_series("ch.kof.barometer")
-meta <- get_metadata("ch.kof.barometer")
-# search for more keys of publicly available data
-# https://ts-explorer.kof.ethz.ch/guest/2c579efb-e75e-46de-9f68-014f8cb603f6
-```
 
 :::
 
