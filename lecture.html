@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.45">
+
+  <title>Guest Lecture Slides  – Guest Lecture</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="styles/logo.css">
+  <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Guest Lecture</h1>
+  <p class="subtitle">Non-Rectangular Data in Economic Research</p>
+
+<div class="quarto-title-authors">
+</div>
+
+</section>
+
+<section id="about-me" class="slide level2">
+<h2>About me</h2>
+<ul>
+<li>I took this course 3 years ago!</li>
+<li>Just finished my Bachelor in Economics at HSG 20 days ago</li>
+<li>Doing a Master in Data Science with a minor in Economics</li>
+<li>Working at RSEED at KOF-ETH</li>
+</ul>
+</section>
+<section id="about-the-institute-and-my-work" class="slide level2">
+<h2>About the institute and my work</h2>
+<!-- currently I work at KOF which is the Swiss Economic Institute at ETH, where we conduct research about the swiss and global economy. We research all kinds of fields, ranging from the state of the labour market to the swiss innovation capability. To do this, we work with all kinds of data: Data we collect and analyse and publish ourselves, like business tendency surveys, for example. -->
+<!-- I work at the RSEED section, where we build tools, such as software packages to help economic researchers and teach people how to work with data to improve their research. -->
+<!-- Among those things is hacking 4 science, which we teach at RSEED, It is a course which teaches non-computer science PhD students to use the open source ecosystem for their research -->
+<!-- As you can imagine, we use a lot of data and also work with people who use and process a lot of data. In particular, we use time series data. I am 100% sure that each of you, have if not have used time series data, at least seen it - e.g. stock prices!!-->
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img data-src="images/ETH_Fremdmedienlogo_KOF_horizontal_pos.png"> <img data-src="images/rseed-pos.png"> <img data-src="images/h4sci-logo-web.svg" style="width:50.0%"></p>
+</div><div class="column" style="width:60%;">
+<ul>
+<li>From surveys to innovation to forecasting</li>
+<li>Supporting researchers with research software</li>
+<li>Teaching doctoral students to work with data &amp; co.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="monitoring-the-swiss-economy" class="slide level2 smaller">
+<h2>Monitoring the Swiss Economy</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Graph</a></li><li><a href="#tabset-1-2">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="lecture_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2">
+<!-- if the data is readily available, easy to import and cleaned, then it can be and visualized in 13 lines of code like here: But since I am here to give you a more practical perspective of data handling, I can tell you that this is usually not the case -->
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(kofdata)</span>
+<span id="cb2-2"><a></a><span class="fu">library</span>(stats)</span>
+<span id="cb2-3"><a></a>baro_vint <span class="ot">&lt;-</span> <span class="fu">get_collection</span>(<span class="st">"globalbaro_vintages"</span>)</span>
+<span id="cb2-4"><a></a>baro_20210 <span class="ot">&lt;-</span> baro_vint<span class="sc">$</span><span class="st">`</span><span class="at">globalbaro_leading_2020-10</span><span class="st">`</span></span>
+<span id="cb2-5"><a></a></span>
+<span id="cb2-6"><a></a>plot_both <span class="ot">&lt;-</span> <span class="fu">ts.plot</span>(</span>
+<span id="cb2-7"><a></a>  baro_20210,</span>
+<span id="cb2-8"><a></a>  <span class="at">gpars =</span> <span class="fu">list</span>(</span>
+<span id="cb2-9"><a></a>    <span class="at">xlab =</span> <span class="st">"Year"</span>,</span>
+<span id="cb2-10"><a></a>    <span class="at">ylab =</span> <span class="st">"Value"</span>,</span>
+<span id="cb2-11"><a></a>    <span class="at">main =</span> <span class="st">"Global Barometer of 2020-10"</span></span>
+<span id="cb2-12"><a></a>  )</span>
+<span id="cb2-13"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<!-- Most researchers prefer working with csv data - as you've already learnt. This is what csv data looks like, and on the next tab, is what csv data looks like when it is imported and visualited in R, as you probably know-->
+</section>
+<section id="ideal-for-research-csv" class="slide level2">
+<h2>Ideal for Research: CSV</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Raw CSV</a></li><li><a href="#tabset-2-2">in R</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource csv number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a></a>"","ch.kof.barometer"</span>
+<span id="cb3-2"><a></a>"1",91.603983195147</span>
+<span id="cb3-3"><a></a>"2",79.6110546651818</span>
+<span id="cb3-4"><a></a>"3",89.5461510457633</span>
+<span id="cb3-5"><a></a>"4",94.726562227573</span>
+<span id="cb3-6"><a></a>"5",95.2760107540196</span>
+<span id="cb3-7"><a></a>"6",91.6999806524614</span>
+<span id="cb3-8"><a></a>"7",94.7603265991512</span>
+<span id="cb3-9"><a></a>"8",98.9374845836479</span>
+<span id="cb3-10"><a></a>"9",99.250530216109</span>
+<span id="cb3-11"><a></a>"10",100.695954080549</span>
+<span id="cb3-12"><a></a>"11",95.1439024740007</span>
+<span id="cb3-13"><a></a>"12",93.829329862478</span>
+<span id="cb3-14"><a></a>"13",99.6345882016597</span>
+<span id="cb3-15"><a></a>"14",101.39972459498</span>
+<span id="cb3-16"><a></a>"15",103.383161629919</span>
+<span id="cb3-17"><a></a>"16",96.4129787522254</span>
+<span id="cb3-18"><a></a>"17",95.50120124585</span>
+<span id="cb3-19"><a></a>"18",94.9646448181194</span>
+<span id="cb3-20"><a></a>"19",91.233122719892</span>
+<span id="cb3-21"><a></a>"20",93.1004146432815</span>
+<span id="cb3-22"><a></a>"21",98.0752849285184</span>
+<span id="cb3-23"><a></a>"22",94.236093793915</span>
+<span id="cb3-24"><a></a>"23",94.2859219912958</span>
+<span id="cb3-25"><a></a>"24",97.7390410371803</span>
+<span id="cb3-26"><a></a>"25",103.278993334549</span>
+<span id="cb3-27"><a></a>"26",107.114063330872</span>
+<span id="cb3-28"><a></a>"27",101.53317250345</span>
+<span id="cb3-29"><a></a>"28",100.205407508852</span>
+<span id="cb3-30"><a></a>"29",101.480860647209</span>
+<span id="cb3-31"><a></a>"30",105.76018993057</span>
+<span id="cb3-32"><a></a>"31",105.579338137316</span>
+<span id="cb3-33"><a></a>"32",104.85132143875</span>
+<span id="cb3-34"><a></a>"33",114.405048633553</span>
+<span id="cb3-35"><a></a>"34",113.763660642047</span>
+<span id="cb3-36"><a></a>"35",116.46694315049</span>
+<span id="cb3-37"><a></a>"36",114.548720319861</span>
+<span id="cb3-38"><a></a>"37",107.583745768171</span>
+<span id="cb3-39"><a></a>"38",114.277680917615</span>
+<span id="cb3-40"><a></a>"39",112.077984311711</span>
+<span id="cb3-41"><a></a>"40",107.257185992024</span>
+<span id="cb3-42"><a></a>"41",106.197941190568</span>
+<span id="cb3-43"><a></a>"42",106.98878933386</span>
+<span id="cb3-44"><a></a>"43",105.924221966025</span>
+<span id="cb3-45"><a></a>"44",109.038824304608</span>
+<span id="cb3-46"><a></a>"45",104.775554689306</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-2-2">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>$ch.kof.barometer
+           Jan       Feb       Mar       Apr       May       Jun       Jul
+1991  91.60398  79.61105  89.54615  94.72656  95.27601  91.69998  94.76033
+1992  99.63459 101.39972 103.38316  96.41298  95.50120  94.96464  91.23312
+1993 103.27899 107.11406 101.53317 100.20541 101.48086 105.76019 105.57934
+1994 107.58375 114.27768 112.07798 107.25719 106.19794 106.98879 105.92422
+1995  95.56291  99.43939  96.77512  94.04546  97.27787  94.91676  94.50204
+1996 100.00423  94.61576  97.85034  96.17790  96.95510  98.61625 101.65402
+1997 106.50615 110.33760 109.84660 105.70248 111.42783 106.86350 108.74789
+1998 100.94903 101.82573  99.61504 100.50355 103.05514  97.83173 102.32879
+1999  98.84247  96.95748  96.37241 102.19640 104.49835 106.77356 103.61705
+2000 106.45440 103.22288 110.43345 107.16399 105.56459 105.79626 100.96808
+2001  96.97123  90.07001  88.67227  92.09538  87.87094  94.26905  93.91720
+2002  92.91300 100.18154 100.48633  99.05274 101.40775  98.55700  95.20635
+2003  96.58832  93.37126  94.27666  92.47131  96.42166  95.35338 102.39611
+2004 108.63968 108.39157 108.80324 110.03588 108.59807 105.41040 105.26763
+2005  98.05170 101.44692  99.40012 101.44601 100.46922 102.33306 104.56325
+2006 108.84215 107.62561 108.11471 108.09994 106.66977 108.69356 103.89586
+2007 105.21542 104.11640 105.24318 102.27204 100.11506 103.11047 100.38881
+2008 100.56653  99.21152  95.23725  93.12865  95.12740  94.05004  92.66464
+2009  76.12746  75.42843  76.78551  80.68164  90.89922  95.23098  99.17120
+2010 107.43444 115.82943 115.01767 115.76951 115.91553 113.38106 110.96737
+2011 102.35958 100.53536 103.93572 101.20565  98.06635  96.34670  89.83104
+2012  95.52776  95.38456  97.61475  99.13214  96.03189  98.20214  98.15012
+2013 102.42737 106.99759 104.31572 101.50276 102.78468 101.67511 104.33150
+2014 105.58126 108.07354 107.53434 105.36506 103.48102 103.86503 100.79860
+2015  96.20483  82.35975  87.01794  85.58136  94.35069  93.00498  98.34225
+2016  99.22906 104.97010 103.19389 105.94931 103.05782 105.00208 103.92996
+2017 103.48092 106.18640 108.37498 107.72203 108.90497 109.48310 107.58183
+2018 108.68877 103.63454 100.37020 101.95855  98.81063  96.76744  98.97020
+2019  96.12845  99.09760 100.22509  97.79740  99.86283 100.45946  95.19048
+2020 101.28495  99.14012  80.83539  53.90179  54.64708  89.55427 111.41559
+2021 101.85586 110.36656 116.72187 129.54454 126.90073 117.79467 118.62722
+2022 101.74226  99.00825  91.82593  96.17604  91.01463  95.93598  91.50922
+2023  94.80073  91.76556  96.61084  92.32910  89.77609  88.17560  90.58363
+2024  98.94935 100.59286 101.53529 100.80443 105.78903 103.54760 101.31034
+           Aug       Sep       Oct       Nov       Dec
+1991  98.93748  99.25053 100.69595  95.14390  93.82933
+1992  93.10041  98.07528  94.23609  94.28592  97.73904
+1993 104.85132 114.40505 113.76366 116.46694 114.54872
+1994 109.03882 104.77555 101.46611 103.51729 106.04785
+1995  97.10265  98.29159  96.21451  98.73922  97.86738
+1996 100.35711 102.62397  99.65736 105.22637 105.21533
+1997 107.16246 104.98300 109.23390 101.86299 101.21821
+1998  96.74623  96.73759  95.43378  96.20117 102.79264
+1999 107.98198 105.35114 107.75947 111.17766 108.39795
+2000  98.90353  98.67058 100.42969 100.03685  97.46773
+2001  92.84972  89.66310  82.82314  84.03518  88.44382
+2002  94.10277  95.17212  97.15631  96.65951  98.40335
+2003 104.56215 105.59419 107.41970 109.65601 108.89925
+2004 102.56740 101.46633 102.06457  99.66976  98.27029
+2005 105.04055 106.83955 106.79302 107.24293 106.99108
+2006 105.78243 103.54231 103.65355 106.01539 106.72636
+2007 100.93937 103.57396  99.31930 101.97381 100.88350
+2008  89.82759  85.51503  85.54962  77.92806  76.51992
+2009 102.69441 107.59474 108.05362 110.46162 112.22957
+2010 107.77185 106.67516 104.38168 104.56009 101.99454
+2011  83.73641  83.15943  88.08373  91.66845  94.75158
+2012 105.35076 106.25747 100.66496 100.25107 101.62882
+2013 105.86019 107.17039 106.01566 104.87167 106.45468
+2014  99.51540  98.70193  98.46923  99.03434  96.55472
+2015 100.75822  99.35532 100.70255 101.39289 100.14546
+2016 101.99227 103.18719 102.07832 100.69574 102.71179
+2017 105.58361 109.24964 108.85461 108.98877 109.51455
+2018  96.91534  99.23628  97.74718  98.84842  97.51191
+2019  96.35181  95.84786  95.60789  97.43899  97.63489
+2020 117.31607 110.47487 112.61391 105.14702 106.07517
+2021 108.90653 109.40517 106.86158 103.24245 100.24417
+2022  89.51209  88.97569  87.24362  90.93959  93.30764
+2023  90.65683  93.76068  94.70606  98.79388 100.75663
+2024 104.99858 105.50773                              </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ideal-for-research-metadata" class="slide level2">
+<h2>Ideal for Research: Metadata</h2>
+<!-- And since economic researchers usually do not only work with few time series, but potentially 100s, there also needs to be available information which describes the variables, the units it is represented in and the source, which is what meta data is for. -->
+<!-- Since this data is often in text format, it is represented in nested format, such as json (as you've learnt) or yaml, which is a similar format for nested data, but without brackets, which you see in json data -->
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Raw Yaml</a></li><li><a href="#tabset-3-2">Yaml in R</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a></a><span class="fu">ch.kof.barometer</span><span class="kw">:</span></span>
+<span id="cb5-2"><a></a><span class="at">  </span><span class="fu">url</span><span class="kw">:</span><span class="at"> https://kof.ethz.ch/en/forecasts-and-indicators/indicators/kof-economic-barometer.html</span></span>
+<span id="cb5-3"><a></a><span class="at">  </span><span class="fu">source</span><span class="kw">:</span><span class="at"> KOF Swiss Economic Institute</span></span>
+<span id="cb5-4"><a></a><span class="at">  </span><span class="fu">country</span><span class="kw">:</span><span class="at"> Switzerland</span></span>
+<span id="cb5-5"><a></a><span class="at">  </span><span class="fu">dataset</span><span class="kw">:</span><span class="at"> KOF Economic Barometer</span></span>
+<span id="cb5-6"><a></a><span class="at">  </span><span class="fu">variable</span><span class="kw">:</span><span class="at"> KOF Economic Barometer</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-3-2">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>$ch.kof.barometer
+$ch.kof.barometer$url
+[1] "https://kof.ethz.ch/en/forecasts-and-indicators/indicators/kof-economic-barometer.html"
+
+$ch.kof.barometer$source
+[1] "KOF Swiss Economic Institute"
+
+$ch.kof.barometer$country
+[1] "Switzerland"
+
+$ch.kof.barometer$dataset
+[1] "KOF Economic Barometer"
+
+$ch.kof.barometer$variable
+[1] "KOF Economic Barometer"</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="reality-public-data-providers" class="slide level2 smaller">
+<h2>Reality: Public Data Providers</h2>
+<!-- In reality, however, the data we use and get isnt perfect or this tidy. -->
+<!-- IMPORTANT: excel spreadsheets are fundamentally designed for human viewing, but not ideal to extract data when coding, thus, but bad if you want to use it in your research! -->
+<!--  this data, as opposed to the data shown before, includes both descriptions and time series data-->
+<!-- NOT IDEAL FOR CODING: these excel sheets, although visually appealing and readable, lack consistency and machine readability (?).  Think about it, the patterns and techniques used to clean one spreadsheet are very different for the next -->
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Nominal Income</a></li><li><a href="#tabset-4-2">CPI</a></li><li><a href="#tabset-4-3">Import</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<p><img data-src="images/nominal_einkommen.png"></p>
+</div>
+<div id="tabset-4-2">
+<p><img data-src="images/cpi.png"></p>
+</div>
+<div id="tabset-4-3">
+<p><img data-src="images/import.png"></p>
+</div>
+</div>
+</div>
+<!-- and that is the crux of the issue that we want to target with our initiative at RSEED. We realise that researchers spend way too much time importing and cleaning public data, and thus have less time to research. We as programmers and data scientists have the capabilities to solve this, so we want to create a good so-called seperation of concerns -->
+</section>
+<section id="separation-of-concerns" class="slide level2">
+<h2>Separation of Concerns</h2>
+<!-- so what we are doing in at our work is taking the data published by public data providers like the swiss national bank, or the federal statistical office, and transform this mixed-format data into tidy data where each information type has its appropriate format, as shown before. rectangular data (aka time series) into csv files and non-rectangular data aka descriptions into non-rectangular formats, like yaml or json. which is researcher-friendly  -->
+
+<!-- Most of this initiative is still in development, and is 1. not publicly usable yet, and 2. quite complex, since the heterogeneity of public data means that there aren't one-fix-all functions, unfortunately. -->
+<!-- So, I will talk to you about a closely related project under the same hood, which also improves the  availability of public data and the seperation of rectangular and non-rectangular data, and moreover, this project you can access and use yourself -->
+<!-- to go through this example, I want you to imagine that you are an economic researcher or better yet, you might be in future, when you start working on your bachelor's thesis. Like many economic researchers, you will want to work with data. -->
+<!-- Another reality of working with data is not only the ugly formats that you will encounter but API's.API's are a very common tool in a data scientist's toolbox, but also in a reseachers toolbox, since working with data is made a lot easier! -->
+<img data-src="images/combined_ill.jpeg" class="r-stretch"></section>
+<section id="reality-apis" class="slide level2">
+<h2>Reality: API’s</h2>
+<!-- API's - application programming interfaces are software interemediaries that allow for communication between two applications - which allow you to get data from one place smoothly into your coding environment without needing to actually go onto a website to check if the data exists and download it. -->
+<!-- IMPORTANT: API's are fundamentally not meant for humans, but for sharing data between computers, and thus represented in nested form (json)  -->
+<!-- but why am I talking about APIs now. Well, as you will see in a quick demonstration, data fetched through an API is almost always in json data. So knowing how to work with json and other non-rectangular data is essential in working with data from APIs -->
+<!-- create a quick demonstration: go to arc/brave browser (where you can pretty print) and put in: http://datenservice.kof.ethz.ch/api/v1/public/ts?keys=ch.kof.barometer
+
+1. show data
+2. pretty print it 
+3. explain that this is what the data looks like that we get from apis
+-->
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Code</a></li><li><a href="#tabset-5-2">Execution</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(httr)</span>
+<span id="cb7-2"><a></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb7-3"><a></a>keys <span class="ot">&lt;-</span> <span class="st">"ch.kof.barometer"</span></span>
+<span id="cb7-4"><a></a></span>
+<span id="cb7-5"><a></a>url <span class="ot">&lt;-</span> <span class="st">"https://datenservice.kof.ethz.ch/api/v1/public/ts"</span></span>
+<span id="cb7-6"><a></a>query <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">keys =</span> keys, <span class="at">df =</span> <span class="st">"Y-m-d"</span>)</span>
+<span id="cb7-7"><a></a></span>
+<span id="cb7-8"><a></a>response <span class="ot">&lt;-</span> <span class="fu">GET</span>(url, <span class="at">query =</span> query)</span>
+<span id="cb7-9"><a></a>data <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="fu">content</span>(response, <span class="at">as =</span> <span class="st">"text"</span>))</span>
+<span id="cb7-10"><a></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-5-2">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>$ch.kof.barometer
+          date     value
+1   1991-01-01  91.60398
+2   1991-02-01  79.61105
+3   1991-03-01  89.54615
+4   1991-04-01  94.72656
+5   1991-05-01  95.27601
+6   1991-06-01  91.69998
+7   1991-07-01  94.76033
+8   1991-08-01  98.93748
+9   1991-09-01  99.25053
+10  1991-10-01 100.69595
+11  1991-11-01  95.14390
+12  1991-12-01  93.82933
+13  1992-01-01  99.63459
+14  1992-02-01 101.39972
+15  1992-03-01 103.38316
+16  1992-04-01  96.41298
+17  1992-05-01  95.50120
+18  1992-06-01  94.96464
+19  1992-07-01  91.23312
+20  1992-08-01  93.10041
+21  1992-09-01  98.07528
+22  1992-10-01  94.23609
+23  1992-11-01  94.28592
+24  1992-12-01  97.73904
+25  1993-01-01 103.27899
+26  1993-02-01 107.11406
+27  1993-03-01 101.53317
+28  1993-04-01 100.20541
+29  1993-05-01 101.48086
+30  1993-06-01 105.76019
+31  1993-07-01 105.57934
+32  1993-08-01 104.85132
+33  1993-09-01 114.40505
+34  1993-10-01 113.76366
+35  1993-11-01 116.46694
+36  1993-12-01 114.54872
+37  1994-01-01 107.58375
+38  1994-02-01 114.27768
+39  1994-03-01 112.07798
+40  1994-04-01 107.25719
+41  1994-05-01 106.19794
+42  1994-06-01 106.98879
+43  1994-07-01 105.92422
+44  1994-08-01 109.03882
+45  1994-09-01 104.77555
+46  1994-10-01 101.46611
+47  1994-11-01 103.51729
+48  1994-12-01 106.04785
+49  1995-01-01  95.56291
+50  1995-02-01  99.43939
+51  1995-03-01  96.77512
+52  1995-04-01  94.04546
+53  1995-05-01  97.27787
+54  1995-06-01  94.91676
+55  1995-07-01  94.50204
+56  1995-08-01  97.10265
+57  1995-09-01  98.29159
+58  1995-10-01  96.21451
+59  1995-11-01  98.73922
+60  1995-12-01  97.86738
+61  1996-01-01 100.00423
+62  1996-02-01  94.61576
+63  1996-03-01  97.85034
+64  1996-04-01  96.17790
+65  1996-05-01  96.95510
+66  1996-06-01  98.61625
+67  1996-07-01 101.65402
+68  1996-08-01 100.35711
+69  1996-09-01 102.62397
+70  1996-10-01  99.65736
+71  1996-11-01 105.22637
+72  1996-12-01 105.21533
+73  1997-01-01 106.50615
+74  1997-02-01 110.33760
+75  1997-03-01 109.84660
+76  1997-04-01 105.70248
+77  1997-05-01 111.42783
+78  1997-06-01 106.86350
+79  1997-07-01 108.74789
+80  1997-08-01 107.16246
+81  1997-09-01 104.98300
+82  1997-10-01 109.23390
+83  1997-11-01 101.86299
+84  1997-12-01 101.21821
+85  1998-01-01 100.94903
+86  1998-02-01 101.82573
+87  1998-03-01  99.61504
+88  1998-04-01 100.50355
+89  1998-05-01 103.05514
+90  1998-06-01  97.83173
+91  1998-07-01 102.32879
+92  1998-08-01  96.74623
+93  1998-09-01  96.73759
+94  1998-10-01  95.43378
+95  1998-11-01  96.20117
+96  1998-12-01 102.79264
+97  1999-01-01  98.84247
+98  1999-02-01  96.95748
+99  1999-03-01  96.37241
+100 1999-04-01 102.19640
+101 1999-05-01 104.49835
+102 1999-06-01 106.77356
+103 1999-07-01 103.61705
+104 1999-08-01 107.98198
+105 1999-09-01 105.35114
+106 1999-10-01 107.75947
+107 1999-11-01 111.17766
+108 1999-12-01 108.39795
+109 2000-01-01 106.45440
+110 2000-02-01 103.22288
+111 2000-03-01 110.43345
+112 2000-04-01 107.16399
+113 2000-05-01 105.56459
+114 2000-06-01 105.79626
+115 2000-07-01 100.96808
+116 2000-08-01  98.90353
+117 2000-09-01  98.67058
+118 2000-10-01 100.42969
+119 2000-11-01 100.03685
+120 2000-12-01  97.46773
+121 2001-01-01  96.97123
+122 2001-02-01  90.07001
+123 2001-03-01  88.67227
+124 2001-04-01  92.09538
+125 2001-05-01  87.87094
+126 2001-06-01  94.26905
+127 2001-07-01  93.91720
+128 2001-08-01  92.84972
+129 2001-09-01  89.66310
+130 2001-10-01  82.82314
+131 2001-11-01  84.03518
+132 2001-12-01  88.44382
+133 2002-01-01  92.91300
+134 2002-02-01 100.18154
+135 2002-03-01 100.48633
+136 2002-04-01  99.05274
+137 2002-05-01 101.40775
+138 2002-06-01  98.55700
+139 2002-07-01  95.20635
+140 2002-08-01  94.10277
+141 2002-09-01  95.17212
+142 2002-10-01  97.15631
+143 2002-11-01  96.65951
+144 2002-12-01  98.40335
+145 2003-01-01  96.58832
+146 2003-02-01  93.37126
+147 2003-03-01  94.27666
+148 2003-04-01  92.47131
+149 2003-05-01  96.42166
+150 2003-06-01  95.35338
+151 2003-07-01 102.39611
+152 2003-08-01 104.56215
+153 2003-09-01 105.59419
+154 2003-10-01 107.41970
+155 2003-11-01 109.65601
+156 2003-12-01 108.89925
+157 2004-01-01 108.63968
+158 2004-02-01 108.39157
+159 2004-03-01 108.80324
+160 2004-04-01 110.03588
+161 2004-05-01 108.59807
+162 2004-06-01 105.41040
+163 2004-07-01 105.26763
+164 2004-08-01 102.56740
+165 2004-09-01 101.46633
+166 2004-10-01 102.06457
+167 2004-11-01  99.66976
+168 2004-12-01  98.27029
+169 2005-01-01  98.05170
+170 2005-02-01 101.44692
+171 2005-03-01  99.40012
+172 2005-04-01 101.44601
+173 2005-05-01 100.46922
+174 2005-06-01 102.33306
+175 2005-07-01 104.56325
+176 2005-08-01 105.04055
+177 2005-09-01 106.83955
+178 2005-10-01 106.79302
+179 2005-11-01 107.24293
+180 2005-12-01 106.99108
+181 2006-01-01 108.84215
+182 2006-02-01 107.62561
+183 2006-03-01 108.11471
+184 2006-04-01 108.09994
+185 2006-05-01 106.66977
+186 2006-06-01 108.69356
+187 2006-07-01 103.89586
+188 2006-08-01 105.78243
+189 2006-09-01 103.54231
+190 2006-10-01 103.65355
+191 2006-11-01 106.01539
+192 2006-12-01 106.72636
+193 2007-01-01 105.21542
+194 2007-02-01 104.11640
+195 2007-03-01 105.24318
+196 2007-04-01 102.27204
+197 2007-05-01 100.11506
+198 2007-06-01 103.11047
+199 2007-07-01 100.38881
+200 2007-08-01 100.93937
+201 2007-09-01 103.57396
+202 2007-10-01  99.31930
+203 2007-11-01 101.97381
+204 2007-12-01 100.88350
+205 2008-01-01 100.56653
+206 2008-02-01  99.21152
+207 2008-03-01  95.23725
+208 2008-04-01  93.12865
+209 2008-05-01  95.12740
+210 2008-06-01  94.05004
+211 2008-07-01  92.66464
+212 2008-08-01  89.82759
+213 2008-09-01  85.51503
+214 2008-10-01  85.54962
+215 2008-11-01  77.92806
+216 2008-12-01  76.51992
+217 2009-01-01  76.12746
+218 2009-02-01  75.42843
+219 2009-03-01  76.78551
+220 2009-04-01  80.68164
+221 2009-05-01  90.89922
+222 2009-06-01  95.23098
+223 2009-07-01  99.17120
+224 2009-08-01 102.69441
+225 2009-09-01 107.59474
+226 2009-10-01 108.05362
+227 2009-11-01 110.46162
+228 2009-12-01 112.22957
+229 2010-01-01 107.43444
+230 2010-02-01 115.82943
+231 2010-03-01 115.01767
+232 2010-04-01 115.76951
+233 2010-05-01 115.91553
+234 2010-06-01 113.38106
+235 2010-07-01 110.96737
+236 2010-08-01 107.77185
+237 2010-09-01 106.67516
+238 2010-10-01 104.38168
+239 2010-11-01 104.56009
+240 2010-12-01 101.99454
+241 2011-01-01 102.35958
+242 2011-02-01 100.53536
+243 2011-03-01 103.93572
+244 2011-04-01 101.20565
+245 2011-05-01  98.06635
+246 2011-06-01  96.34670
+247 2011-07-01  89.83104
+248 2011-08-01  83.73641
+249 2011-09-01  83.15943
+250 2011-10-01  88.08373
+251 2011-11-01  91.66845
+252 2011-12-01  94.75158
+253 2012-01-01  95.52776
+254 2012-02-01  95.38456
+255 2012-03-01  97.61475
+256 2012-04-01  99.13214
+257 2012-05-01  96.03189
+258 2012-06-01  98.20214
+259 2012-07-01  98.15012
+260 2012-08-01 105.35076
+261 2012-09-01 106.25747
+262 2012-10-01 100.66496
+263 2012-11-01 100.25107
+264 2012-12-01 101.62882
+265 2013-01-01 102.42737
+266 2013-02-01 106.99759
+267 2013-03-01 104.31572
+268 2013-04-01 101.50276
+269 2013-05-01 102.78468
+270 2013-06-01 101.67511
+271 2013-07-01 104.33150
+272 2013-08-01 105.86019
+273 2013-09-01 107.17039
+274 2013-10-01 106.01566
+275 2013-11-01 104.87167
+276 2013-12-01 106.45468
+277 2014-01-01 105.58126
+278 2014-02-01 108.07354
+279 2014-03-01 107.53434
+280 2014-04-01 105.36506
+281 2014-05-01 103.48102
+282 2014-06-01 103.86503
+283 2014-07-01 100.79860
+284 2014-08-01  99.51540
+285 2014-09-01  98.70193
+286 2014-10-01  98.46923
+287 2014-11-01  99.03434
+288 2014-12-01  96.55472
+289 2015-01-01  96.20483
+290 2015-02-01  82.35975
+291 2015-03-01  87.01794
+292 2015-04-01  85.58136
+293 2015-05-01  94.35069
+294 2015-06-01  93.00498
+295 2015-07-01  98.34225
+296 2015-08-01 100.75822
+297 2015-09-01  99.35532
+298 2015-10-01 100.70255
+299 2015-11-01 101.39289
+300 2015-12-01 100.14546
+301 2016-01-01  99.22906
+302 2016-02-01 104.97010
+303 2016-03-01 103.19389
+304 2016-04-01 105.94931
+305 2016-05-01 103.05782
+306 2016-06-01 105.00208
+307 2016-07-01 103.92996
+308 2016-08-01 101.99227
+309 2016-09-01 103.18719
+310 2016-10-01 102.07832
+311 2016-11-01 100.69574
+312 2016-12-01 102.71179
+313 2017-01-01 103.48092
+314 2017-02-01 106.18640
+315 2017-03-01 108.37498
+316 2017-04-01 107.72203
+317 2017-05-01 108.90497
+318 2017-06-01 109.48310
+319 2017-07-01 107.58183
+320 2017-08-01 105.58361
+321 2017-09-01 109.24964
+322 2017-10-01 108.85461
+323 2017-11-01 108.98877
+324 2017-12-01 109.51455
+325 2018-01-01 108.68877
+326 2018-02-01 103.63454
+327 2018-03-01 100.37020
+328 2018-04-01 101.95855
+329 2018-05-01  98.81063
+330 2018-06-01  96.76744
+331 2018-07-01  98.97020
+332 2018-08-01  96.91534
+333 2018-09-01  99.23628
+334 2018-10-01  97.74718
+335 2018-11-01  98.84842
+336 2018-12-01  97.51191
+337 2019-01-01  96.12845
+338 2019-02-01  99.09760
+339 2019-03-01 100.22509
+340 2019-04-01  97.79740
+341 2019-05-01  99.86283
+342 2019-06-01 100.45946
+343 2019-07-01  95.19048
+344 2019-08-01  96.35181
+345 2019-09-01  95.84786
+346 2019-10-01  95.60789
+347 2019-11-01  97.43899
+348 2019-12-01  97.63489
+349 2020-01-01 101.28495
+350 2020-02-01  99.14012
+351 2020-03-01  80.83539
+352 2020-04-01  53.90179
+353 2020-05-01  54.64708
+354 2020-06-01  89.55427
+355 2020-07-01 111.41559
+356 2020-08-01 117.31607
+357 2020-09-01 110.47487
+358 2020-10-01 112.61391
+359 2020-11-01 105.14702
+360 2020-12-01 106.07517
+361 2021-01-01 101.85586
+362 2021-02-01 110.36656
+363 2021-03-01 116.72187
+364 2021-04-01 129.54454
+365 2021-05-01 126.90073
+366 2021-06-01 117.79467
+367 2021-07-01 118.62722
+368 2021-08-01 108.90653
+369 2021-09-01 109.40517
+370 2021-10-01 106.86158
+371 2021-11-01 103.24245
+372 2021-12-01 100.24417
+373 2022-01-01 101.74226
+374 2022-02-01  99.00825
+375 2022-03-01  91.82593
+376 2022-04-01  96.17604
+377 2022-05-01  91.01463
+378 2022-06-01  95.93598
+379 2022-07-01  91.50922
+380 2022-08-01  89.51209
+381 2022-09-01  88.97569
+382 2022-10-01  87.24362
+383 2022-11-01  90.93959
+384 2022-12-01  93.30764
+385 2023-01-01  94.80073
+386 2023-02-01  91.76556
+387 2023-03-01  96.61084
+388 2023-04-01  92.32910
+389 2023-05-01  89.77609
+390 2023-06-01  88.17560
+391 2023-07-01  90.58363
+392 2023-08-01  90.65683
+393 2023-09-01  93.76068
+394 2023-10-01  94.70606
+395 2023-11-01  98.79388
+396 2023-12-01 100.75663
+397 2024-01-01  98.94935
+398 2024-02-01 100.59286
+399 2024-03-01 101.53529
+400 2024-04-01 100.80443
+401 2024-05-01 105.78903
+402 2024-06-01 103.54760
+403 2024-07-01 101.31034
+404 2024-08-01 104.99858
+405 2024-09-01 105.50773</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="r-package-api-wrapper-kofdata" class="slide level2">
+<h2>R Package API Wrapper: kofdata</h2>
+<!-- this code snippet shows how to handle data that comes from an Application Programming Interface, designed for machine to machine communication, this data is in a very digestable format for machines -->
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Code</a></li><li><a href="#tabset-6-2">Time Series Data</a></li><li><a href="#tabset-6-3">Metadata</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">library</span>(kofdata)</span>
+<span id="cb9-2"><a></a>ts <span class="ot">&lt;-</span> <span class="fu">get_time_series</span>(<span class="st">"ch.kof.barometer"</span>)</span>
+<span id="cb9-3"><a></a>meta <span class="ot">&lt;-</span> <span class="fu">get_metadata</span>(<span class="st">"ch.kof.barometer"</span>)</span>
+<span id="cb9-4"><a></a><span class="co"># search for more keys of publicly available data</span></span>
+<span id="cb9-5"><a></a><span class="co"># https://ts-explorer.kof.ethz.ch/guest/2c579efb-e75e-46de-9f68-014f8cb603f6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-6-2">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>$ch.kof.barometer
+           Jan       Feb       Mar       Apr       May       Jun       Jul
+1991  91.60398  79.61105  89.54615  94.72656  95.27601  91.69998  94.76033
+1992  99.63459 101.39972 103.38316  96.41298  95.50120  94.96464  91.23312
+1993 103.27899 107.11406 101.53317 100.20541 101.48086 105.76019 105.57934
+1994 107.58375 114.27768 112.07798 107.25719 106.19794 106.98879 105.92422
+1995  95.56291  99.43939  96.77512  94.04546  97.27787  94.91676  94.50204
+1996 100.00423  94.61576  97.85034  96.17790  96.95510  98.61625 101.65402
+1997 106.50615 110.33760 109.84660 105.70248 111.42783 106.86350 108.74789
+1998 100.94903 101.82573  99.61504 100.50355 103.05514  97.83173 102.32879
+1999  98.84247  96.95748  96.37241 102.19640 104.49835 106.77356 103.61705
+2000 106.45440 103.22288 110.43345 107.16399 105.56459 105.79626 100.96808
+2001  96.97123  90.07001  88.67227  92.09538  87.87094  94.26905  93.91720
+2002  92.91300 100.18154 100.48633  99.05274 101.40775  98.55700  95.20635
+2003  96.58832  93.37126  94.27666  92.47131  96.42166  95.35338 102.39611
+2004 108.63968 108.39157 108.80324 110.03588 108.59807 105.41040 105.26763
+2005  98.05170 101.44692  99.40012 101.44601 100.46922 102.33306 104.56325
+2006 108.84215 107.62561 108.11471 108.09994 106.66977 108.69356 103.89586
+2007 105.21542 104.11640 105.24318 102.27204 100.11506 103.11047 100.38881
+2008 100.56653  99.21152  95.23725  93.12865  95.12740  94.05004  92.66464
+2009  76.12746  75.42843  76.78551  80.68164  90.89922  95.23098  99.17120
+2010 107.43444 115.82943 115.01767 115.76951 115.91553 113.38106 110.96737
+2011 102.35958 100.53536 103.93572 101.20565  98.06635  96.34670  89.83104
+2012  95.52776  95.38456  97.61475  99.13214  96.03189  98.20214  98.15012
+2013 102.42737 106.99759 104.31572 101.50276 102.78468 101.67511 104.33150
+2014 105.58126 108.07354 107.53434 105.36506 103.48102 103.86503 100.79860
+2015  96.20483  82.35975  87.01794  85.58136  94.35069  93.00498  98.34225
+2016  99.22906 104.97010 103.19389 105.94931 103.05782 105.00208 103.92996
+2017 103.48092 106.18640 108.37498 107.72203 108.90497 109.48310 107.58183
+2018 108.68877 103.63454 100.37020 101.95855  98.81063  96.76744  98.97020
+2019  96.12845  99.09760 100.22509  97.79740  99.86283 100.45946  95.19048
+2020 101.28495  99.14012  80.83539  53.90179  54.64708  89.55427 111.41559
+2021 101.85586 110.36656 116.72187 129.54454 126.90073 117.79467 118.62722
+2022 101.74226  99.00825  91.82593  96.17604  91.01463  95.93598  91.50922
+2023  94.80073  91.76556  96.61084  92.32910  89.77609  88.17560  90.58363
+2024  98.94935 100.59286 101.53529 100.80443 105.78903 103.54760 101.31034
+           Aug       Sep       Oct       Nov       Dec
+1991  98.93748  99.25053 100.69595  95.14390  93.82933
+1992  93.10041  98.07528  94.23609  94.28592  97.73904
+1993 104.85132 114.40505 113.76366 116.46694 114.54872
+1994 109.03882 104.77555 101.46611 103.51729 106.04785
+1995  97.10265  98.29159  96.21451  98.73922  97.86738
+1996 100.35711 102.62397  99.65736 105.22637 105.21533
+1997 107.16246 104.98300 109.23390 101.86299 101.21821
+1998  96.74623  96.73759  95.43378  96.20117 102.79264
+1999 107.98198 105.35114 107.75947 111.17766 108.39795
+2000  98.90353  98.67058 100.42969 100.03685  97.46773
+2001  92.84972  89.66310  82.82314  84.03518  88.44382
+2002  94.10277  95.17212  97.15631  96.65951  98.40335
+2003 104.56215 105.59419 107.41970 109.65601 108.89925
+2004 102.56740 101.46633 102.06457  99.66976  98.27029
+2005 105.04055 106.83955 106.79302 107.24293 106.99108
+2006 105.78243 103.54231 103.65355 106.01539 106.72636
+2007 100.93937 103.57396  99.31930 101.97381 100.88350
+2008  89.82759  85.51503  85.54962  77.92806  76.51992
+2009 102.69441 107.59474 108.05362 110.46162 112.22957
+2010 107.77185 106.67516 104.38168 104.56009 101.99454
+2011  83.73641  83.15943  88.08373  91.66845  94.75158
+2012 105.35076 106.25747 100.66496 100.25107 101.62882
+2013 105.86019 107.17039 106.01566 104.87167 106.45468
+2014  99.51540  98.70193  98.46923  99.03434  96.55472
+2015 100.75822  99.35532 100.70255 101.39289 100.14546
+2016 101.99227 103.18719 102.07832 100.69574 102.71179
+2017 105.58361 109.24964 108.85461 108.98877 109.51455
+2018  96.91534  99.23628  97.74718  98.84842  97.51191
+2019  96.35181  95.84786  95.60789  97.43899  97.63489
+2020 117.31607 110.47487 112.61391 105.14702 106.07517
+2021 108.90653 109.40517 106.86158 103.24245 100.24417
+2022  89.51209  88.97569  87.24362  90.93959  93.30764
+2023  90.65683  93.76068  94.70606  98.79388 100.75663
+2024 104.99858 105.50773                              </code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-6-3">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>$ch.kof.barometer
+$ch.kof.barometer$url
+[1] "https://kof.ethz.ch/en/forecasts-and-indicators/indicators/kof-economic-barometer.html"
+
+$ch.kof.barometer$source
+[1] "KOF Swiss Economic Institute"
+
+$ch.kof.barometer$country
+[1] "Switzerland"
+
+$ch.kof.barometer$dataset
+[1] "KOF Economic Barometer"
+
+$ch.kof.barometer$variable
+[1] "KOF Economic Barometer"</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="thank-you-for-your-attention" class="slide level2">
+<h2>Thank you for your attention!</h2>
+<p>If you are interested in working with us or if you have any questions:</p>
+<ul>
+<li>source code: <a href="https://github.com/minnaheim/dh_guest_lecture">https://github.com/minnaheim/dh_guest_lecture</a></li>
+<li>slides: <a href="https://minnaheim.github.io/dh_guest_lecture/lecture.html">https://minnaheim.github.io/dh_guest_lecture/lecture.html</a></li>
+<li>find us at <a href="https://rseed.ch">rseed.ch</a></li>
+<li>contact me: <a href="mailto:heim@kof.ethz.ch">heim@kof.ethz.ch</a></li>
+</ul>
+<!-- go through slides and script example -->
+
+<div class="quarto-auto-generated-content">
+<p><img src="images/rseed-pos.png" class="slide-logo"></p>
+<div class="footer footer-default">
+
+</div>
+</div>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("https:\/\/minnaheim\.github\.io\/dh_guest_lecture\/index\.html");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
