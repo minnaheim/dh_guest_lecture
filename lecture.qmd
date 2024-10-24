@@ -57,10 +57,11 @@ install.packages("kofdata", repo = "https://stat.ethz.ch/CRAN/")
 ### Graph 
 ```{r, echo=FALSE,results='hide',fig.keep='all'}
 library(kofdata)
+library(stats)
 baro_vint <- get_collection("globalbaro_vintages")
 baro_20210 <- baro_vint$`globalbaro_leading_2020-10`
 
-plot_both <- ts.plot(
+plot_both <- stats::ts.plot(
   baro_20210,
   gpars = list(
     xlab = "Year",
@@ -78,6 +79,7 @@ plot_both
 
 ```r
 library(kofdata)
+library(stats)
 baro_vint <- get_collection("globalbaro_vintages")
 baro_20210 <- baro_vint$`globalbaro_leading_2020-10`
 
@@ -100,30 +102,59 @@ plot_both <- ts.plot(
 
 ## Raw CSV
 ```csv
-adjustment,trans,variable,section,date,value
-brut,ind,ptot,41,1999-01-01,59.1370800939374
-brut,ind,ptot,41,1999-04-01,86.4005898178125
-brut,ind,ptot,41,1999-07-01,91.0748183923657
-brut,ind,ptot,41,1999-10-01,87.658240361848
-brut,ind,ptot,41,2000-01-01,64.8238003330359
-brut,ind,ptot,41,2000-04-01,86.3787996471447
-brut,ind,ptot,41,2000-07-01,89.9274833957628
-brut,ind,ptot,41,2000-10-01,85.7126629767177
-brut,ind,ptot,41,2001-01-01,64.7521097202243
-brut,ind,ptot,41,2001-04-01,83.713854309254
-brut,ind,ptot,41,2001-07-01,89.1017132230226
-brut,ind,ptot,41,2001-10-01,84.7488538412133
-brut,ind,ptot,41,2002-01-01,68.9360282923345
-brut,ind,ptot,41,2002-04-01,87.3890350828722
-brut,ind,ptot,41,2002-07-01,91.9010797688999
-brut,ind,ptot,41,2002-10-01,88.8656398791957
+"","ch.kof.barometer"
+"1",91.603983195147
+"2",79.6110546651818
+"3",89.5461510457633
+"4",94.726562227573
+"5",95.2760107540196
+"6",91.6999806524614
+"7",94.7603265991512
+"8",98.9374845836479
+"9",99.250530216109
+"10",100.695954080549
+"11",95.1439024740007
+"12",93.829329862478
+"13",99.6345882016597
+"14",101.39972459498
+"15",103.383161629919
+"16",96.4129787522254
+"17",95.50120124585
+"18",94.9646448181194
+"19",91.233122719892
+"20",93.1004146432815
+"21",98.0752849285184
+"22",94.236093793915
+"23",94.2859219912958
+"24",97.7390410371803
+"25",103.278993334549
+"26",107.114063330872
+"27",101.53317250345
+"28",100.205407508852
+"29",101.480860647209
+"30",105.76018993057
+"31",105.579338137316
+"32",104.85132143875
+"33",114.405048633553
+"34",113.763660642047
+"35",116.46694315049
+"36",114.548720319861
+"37",107.583745768171
+"38",114.277680917615
+"39",112.077984311711
+"40",107.257185992024
+"41",106.197941190568
+"42",106.98878933386
+"43",105.924221966025
+"44",109.038824304608
+"45",104.775554689306
 ```
 
 ## in R
 ```{r}
-library(tidyverse)
-bapau <- read_csv("data/ch.fso.bapau/ch.fso.bapau.csv")
-head(bapau, 10)
+library(kofdata)
+baro <- get_time_series("ch.kof.barometer")
+print(baro)
 ```
 
 :::
@@ -138,31 +169,19 @@ head(bapau, 10)
 
 ## Raw Yaml
 ```yaml
-title:
-  en: Adecco Swiss Job Market Index
-  de: Adecco Swiss Job Market Index
-  fr: Adecco Swiss Job Market Index
-  it: Adecco Swiss Job Market Index
-source.name:
-  en: University of Zürich
-  de: Universität Zürich
-  fr: Université de Zurich
-  it: Università di Zurigo
-source.url:
-- http://www.stellenmarktmonitor.uzh.ch/en/indices/asjmi.html
-units:
-  all:
-    en: Index, Base Q1 2008=100
-    de: Index, Basis Q1 2008=100
-    fr: Indice, Base Q1 2008=100
-    it: Indice, Base Q1 2008=100
+ch.kof.barometer:
+  url: https://kof.ethz.ch/en/forecasts-and-indicators/indicators/kof-economic-barometer.html
+  source: KOF Swiss Economic Institute
+  country: Switzerland
+  dataset: KOF Economic Barometer
+  variable: KOF Economic Barometer
 ```
 
 ## Yaml in R
 ```{r}
-library(yaml)
-meta <- read_yaml("data/ch.adecco.sjmi/ch.adecco.sjmi.yaml")
-print(meta)
+library(kofdata)
+meta <- get_metadata("ch.kof.barometer")
+head(meta)
 ```
 
 :::
@@ -171,7 +190,11 @@ print(meta)
 
 <!-- IMPORTANT: excel spreadsheets are fundamentally designed for human viewing, but not ideal to extract data when coding, thus, but bad if you want to use it in your research! -->
 
-<!-- these excel sheets, although visually appealing and readable, lack consistency and machine readability (?).  Think about it, the patterns and techniques used to clean one spreadsheet are very different for the next -->
+<!--  this data, as opposed to the data shown before, includes both descriptions and time series data-->
+
+<!-- NOT IDEAL FOR CODING: these excel sheets, although visually appealing and readable, lack consistency and machine readability (?).  Think about it, the patterns and techniques used to clean one spreadsheet are very different for the next -->
+
+
 
 ::: {.panel-tabset}
 ## Nominal Income 
@@ -272,8 +295,6 @@ ts <- get_time_series("ch.kof.barometer")
 meta <- get_metadata("ch.kof.barometer")
 # search for more keys of publicly available data
 # https://ts-explorer.kof.ethz.ch/guest/2c579efb-e75e-46de-9f68-014f8cb603f6
-head(ts)
-head(meta)
 ```
 
 :::
@@ -282,6 +303,10 @@ head(meta)
 ## Thank you for your attention! 
 If you are interested in working with us or if you have any questions: 
 
-- presentation & code at: [https://github.com/minnaheim/dh_guest_lecture](https://github.com/minnaheim/dh_guest_lecture)
+- source code: [https://github.com/minnaheim/dh_guest_lecture](https://github.com/minnaheim/dh_guest_lecture)
+- slides: [https://minnaheim.github.io/dh_guest_lecture/lecture.html](https://minnaheim.github.io/dh_guest_lecture/lecture.html)
 - find us at [rseed.ch](https://rseed.ch)
 - contact me: [heim@kof.ethz.ch](mailto:heim@kof.ethz.ch)
+
+
+<!-- go through slides and script example -->
