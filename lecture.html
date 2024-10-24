@@ -444,17 +444,18 @@
 <div id="tabset-1-2">
 <!-- if the data is readily available, easy to import and cleaned, then it can be and visualized in 13 lines of code like here: But since I am here to give you a more practical perspective of data handling, I can tell you that this is usually not the case -->
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(kofdata)</span>
-<span id="cb2-2"><a></a>baro_vint <span class="ot">&lt;-</span> <span class="fu">get_collection</span>(<span class="st">"globalbaro_vintages"</span>)</span>
-<span id="cb2-3"><a></a>baro_20210 <span class="ot">&lt;-</span> baro_vint<span class="sc">$</span><span class="st">`</span><span class="at">globalbaro_leading_2020-10</span><span class="st">`</span></span>
-<span id="cb2-4"><a></a></span>
-<span id="cb2-5"><a></a>plot_both <span class="ot">&lt;-</span> <span class="fu">ts.plot</span>(</span>
-<span id="cb2-6"><a></a>  baro_20210,</span>
-<span id="cb2-7"><a></a>  <span class="at">gpars =</span> <span class="fu">list</span>(</span>
-<span id="cb2-8"><a></a>    <span class="at">xlab =</span> <span class="st">"Year"</span>,</span>
-<span id="cb2-9"><a></a>    <span class="at">ylab =</span> <span class="st">"Value"</span>,</span>
-<span id="cb2-10"><a></a>    <span class="at">main =</span> <span class="st">"Global Barometer of 2020-10"</span></span>
-<span id="cb2-11"><a></a>  )</span>
-<span id="cb2-12"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a></a><span class="fu">library</span>(stats)</span>
+<span id="cb2-3"><a></a>baro_vint <span class="ot">&lt;-</span> <span class="fu">get_collection</span>(<span class="st">"globalbaro_vintages"</span>)</span>
+<span id="cb2-4"><a></a>baro_20210 <span class="ot">&lt;-</span> baro_vint<span class="sc">$</span><span class="st">`</span><span class="at">globalbaro_leading_2020-10</span><span class="st">`</span></span>
+<span id="cb2-5"><a></a></span>
+<span id="cb2-6"><a></a>plot_both <span class="ot">&lt;-</span> <span class="fu">ts.plot</span>(</span>
+<span id="cb2-7"><a></a>  baro_20210,</span>
+<span id="cb2-8"><a></a>  <span class="at">gpars =</span> <span class="fu">list</span>(</span>
+<span id="cb2-9"><a></a>    <span class="at">xlab =</span> <span class="st">"Year"</span>,</span>
+<span id="cb2-10"><a></a>    <span class="at">ylab =</span> <span class="st">"Value"</span>,</span>
+<span id="cb2-11"><a></a>    <span class="at">main =</span> <span class="st">"Global Barometer of 2020-10"</span></span>
+<span id="cb2-12"><a></a>  )</span>
+<span id="cb2-13"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -466,40 +467,127 @@
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Raw CSV</a></li><li><a href="#tabset-2-2">in R</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource csv number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a></a>adjustment,trans,variable,section,date,value</span>
-<span id="cb3-2"><a></a>brut,ind,ptot,41,1999-01-01,59.1370800939374</span>
-<span id="cb3-3"><a></a>brut,ind,ptot,41,1999-04-01,86.4005898178125</span>
-<span id="cb3-4"><a></a>brut,ind,ptot,41,1999-07-01,91.0748183923657</span>
-<span id="cb3-5"><a></a>brut,ind,ptot,41,1999-10-01,87.658240361848</span>
-<span id="cb3-6"><a></a>brut,ind,ptot,41,2000-01-01,64.8238003330359</span>
-<span id="cb3-7"><a></a>brut,ind,ptot,41,2000-04-01,86.3787996471447</span>
-<span id="cb3-8"><a></a>brut,ind,ptot,41,2000-07-01,89.9274833957628</span>
-<span id="cb3-9"><a></a>brut,ind,ptot,41,2000-10-01,85.7126629767177</span>
-<span id="cb3-10"><a></a>brut,ind,ptot,41,2001-01-01,64.7521097202243</span>
-<span id="cb3-11"><a></a>brut,ind,ptot,41,2001-04-01,83.713854309254</span>
-<span id="cb3-12"><a></a>brut,ind,ptot,41,2001-07-01,89.1017132230226</span>
-<span id="cb3-13"><a></a>brut,ind,ptot,41,2001-10-01,84.7488538412133</span>
-<span id="cb3-14"><a></a>brut,ind,ptot,41,2002-01-01,68.9360282923345</span>
-<span id="cb3-15"><a></a>brut,ind,ptot,41,2002-04-01,87.3890350828722</span>
-<span id="cb3-16"><a></a>brut,ind,ptot,41,2002-07-01,91.9010797688999</span>
-<span id="cb3-17"><a></a>brut,ind,ptot,41,2002-10-01,88.8656398791957</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource csv number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a></a>"","ch.kof.barometer"</span>
+<span id="cb3-2"><a></a>"1",91.603983195147</span>
+<span id="cb3-3"><a></a>"2",79.6110546651818</span>
+<span id="cb3-4"><a></a>"3",89.5461510457633</span>
+<span id="cb3-5"><a></a>"4",94.726562227573</span>
+<span id="cb3-6"><a></a>"5",95.2760107540196</span>
+<span id="cb3-7"><a></a>"6",91.6999806524614</span>
+<span id="cb3-8"><a></a>"7",94.7603265991512</span>
+<span id="cb3-9"><a></a>"8",98.9374845836479</span>
+<span id="cb3-10"><a></a>"9",99.250530216109</span>
+<span id="cb3-11"><a></a>"10",100.695954080549</span>
+<span id="cb3-12"><a></a>"11",95.1439024740007</span>
+<span id="cb3-13"><a></a>"12",93.829329862478</span>
+<span id="cb3-14"><a></a>"13",99.6345882016597</span>
+<span id="cb3-15"><a></a>"14",101.39972459498</span>
+<span id="cb3-16"><a></a>"15",103.383161629919</span>
+<span id="cb3-17"><a></a>"16",96.4129787522254</span>
+<span id="cb3-18"><a></a>"17",95.50120124585</span>
+<span id="cb3-19"><a></a>"18",94.9646448181194</span>
+<span id="cb3-20"><a></a>"19",91.233122719892</span>
+<span id="cb3-21"><a></a>"20",93.1004146432815</span>
+<span id="cb3-22"><a></a>"21",98.0752849285184</span>
+<span id="cb3-23"><a></a>"22",94.236093793915</span>
+<span id="cb3-24"><a></a>"23",94.2859219912958</span>
+<span id="cb3-25"><a></a>"24",97.7390410371803</span>
+<span id="cb3-26"><a></a>"25",103.278993334549</span>
+<span id="cb3-27"><a></a>"26",107.114063330872</span>
+<span id="cb3-28"><a></a>"27",101.53317250345</span>
+<span id="cb3-29"><a></a>"28",100.205407508852</span>
+<span id="cb3-30"><a></a>"29",101.480860647209</span>
+<span id="cb3-31"><a></a>"30",105.76018993057</span>
+<span id="cb3-32"><a></a>"31",105.579338137316</span>
+<span id="cb3-33"><a></a>"32",104.85132143875</span>
+<span id="cb3-34"><a></a>"33",114.405048633553</span>
+<span id="cb3-35"><a></a>"34",113.763660642047</span>
+<span id="cb3-36"><a></a>"35",116.46694315049</span>
+<span id="cb3-37"><a></a>"36",114.548720319861</span>
+<span id="cb3-38"><a></a>"37",107.583745768171</span>
+<span id="cb3-39"><a></a>"38",114.277680917615</span>
+<span id="cb3-40"><a></a>"39",112.077984311711</span>
+<span id="cb3-41"><a></a>"40",107.257185992024</span>
+<span id="cb3-42"><a></a>"41",106.197941190568</span>
+<span id="cb3-43"><a></a>"42",106.98878933386</span>
+<span id="cb3-44"><a></a>"43",105.924221966025</span>
+<span id="cb3-45"><a></a>"44",109.038824304608</span>
+<span id="cb3-46"><a></a>"45",104.775554689306</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-2-2">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10 × 6
-   adjustment trans variable section date       value
-   &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;date&gt;     &lt;dbl&gt;
- 1 brut       ind   ptot     41      1999-01-01  59.1
- 2 brut       ind   ptot     41      1999-04-01  86.4
- 3 brut       ind   ptot     41      1999-07-01  91.1
- 4 brut       ind   ptot     41      1999-10-01  87.7
- 5 brut       ind   ptot     41      2000-01-01  64.8
- 6 brut       ind   ptot     41      2000-04-01  86.4
- 7 brut       ind   ptot     41      2000-07-01  89.9
- 8 brut       ind   ptot     41      2000-10-01  85.7
- 9 brut       ind   ptot     41      2001-01-01  64.8
-10 brut       ind   ptot     41      2001-04-01  83.7</code></pre>
+<pre><code>$ch.kof.barometer
+           Jan       Feb       Mar       Apr       May       Jun       Jul
+1991  91.60398  79.61105  89.54615  94.72656  95.27601  91.69998  94.76033
+1992  99.63459 101.39972 103.38316  96.41298  95.50120  94.96464  91.23312
+1993 103.27899 107.11406 101.53317 100.20541 101.48086 105.76019 105.57934
+1994 107.58375 114.27768 112.07798 107.25719 106.19794 106.98879 105.92422
+1995  95.56291  99.43939  96.77512  94.04546  97.27787  94.91676  94.50204
+1996 100.00423  94.61576  97.85034  96.17790  96.95510  98.61625 101.65402
+1997 106.50615 110.33760 109.84660 105.70248 111.42783 106.86350 108.74789
+1998 100.94903 101.82573  99.61504 100.50355 103.05514  97.83173 102.32879
+1999  98.84247  96.95748  96.37241 102.19640 104.49835 106.77356 103.61705
+2000 106.45440 103.22288 110.43345 107.16399 105.56459 105.79626 100.96808
+2001  96.97123  90.07001  88.67227  92.09538  87.87094  94.26905  93.91720
+2002  92.91300 100.18154 100.48633  99.05274 101.40775  98.55700  95.20635
+2003  96.58832  93.37126  94.27666  92.47131  96.42166  95.35338 102.39611
+2004 108.63968 108.39157 108.80324 110.03588 108.59807 105.41040 105.26763
+2005  98.05170 101.44692  99.40012 101.44601 100.46922 102.33306 104.56325
+2006 108.84215 107.62561 108.11471 108.09994 106.66977 108.69356 103.89586
+2007 105.21542 104.11640 105.24318 102.27204 100.11506 103.11047 100.38881
+2008 100.56653  99.21152  95.23725  93.12865  95.12740  94.05004  92.66464
+2009  76.12746  75.42843  76.78551  80.68164  90.89922  95.23098  99.17120
+2010 107.43444 115.82943 115.01767 115.76951 115.91553 113.38106 110.96737
+2011 102.35958 100.53536 103.93572 101.20565  98.06635  96.34670  89.83104
+2012  95.52776  95.38456  97.61475  99.13214  96.03189  98.20214  98.15012
+2013 102.42737 106.99759 104.31572 101.50276 102.78468 101.67511 104.33150
+2014 105.58126 108.07354 107.53434 105.36506 103.48102 103.86503 100.79860
+2015  96.20483  82.35975  87.01794  85.58136  94.35069  93.00498  98.34225
+2016  99.22906 104.97010 103.19389 105.94931 103.05782 105.00208 103.92996
+2017 103.48092 106.18640 108.37498 107.72203 108.90497 109.48310 107.58183
+2018 108.68877 103.63454 100.37020 101.95855  98.81063  96.76744  98.97020
+2019  96.12845  99.09760 100.22509  97.79740  99.86283 100.45946  95.19048
+2020 101.28495  99.14012  80.83539  53.90179  54.64708  89.55427 111.41559
+2021 101.85586 110.36656 116.72187 129.54454 126.90073 117.79467 118.62722
+2022 101.74226  99.00825  91.82593  96.17604  91.01463  95.93598  91.50922
+2023  94.80073  91.76556  96.61084  92.32910  89.77609  88.17560  90.58363
+2024  98.94935 100.59286 101.53529 100.80443 105.78903 103.54760 101.31034
+           Aug       Sep       Oct       Nov       Dec
+1991  98.93748  99.25053 100.69595  95.14390  93.82933
+1992  93.10041  98.07528  94.23609  94.28592  97.73904
+1993 104.85132 114.40505 113.76366 116.46694 114.54872
+1994 109.03882 104.77555 101.46611 103.51729 106.04785
+1995  97.10265  98.29159  96.21451  98.73922  97.86738
+1996 100.35711 102.62397  99.65736 105.22637 105.21533
+1997 107.16246 104.98300 109.23390 101.86299 101.21821
+1998  96.74623  96.73759  95.43378  96.20117 102.79264
+1999 107.98198 105.35114 107.75947 111.17766 108.39795
+2000  98.90353  98.67058 100.42969 100.03685  97.46773
+2001  92.84972  89.66310  82.82314  84.03518  88.44382
+2002  94.10277  95.17212  97.15631  96.65951  98.40335
+2003 104.56215 105.59419 107.41970 109.65601 108.89925
+2004 102.56740 101.46633 102.06457  99.66976  98.27029
+2005 105.04055 106.83955 106.79302 107.24293 106.99108
+2006 105.78243 103.54231 103.65355 106.01539 106.72636
+2007 100.93937 103.57396  99.31930 101.97381 100.88350
+2008  89.82759  85.51503  85.54962  77.92806  76.51992
+2009 102.69441 107.59474 108.05362 110.46162 112.22957
+2010 107.77185 106.67516 104.38168 104.56009 101.99454
+2011  83.73641  83.15943  88.08373  91.66845  94.75158
+2012 105.35076 106.25747 100.66496 100.25107 101.62882
+2013 105.86019 107.17039 106.01566 104.87167 106.45468
+2014  99.51540  98.70193  98.46923  99.03434  96.55472
+2015 100.75822  99.35532 100.70255 101.39289 100.14546
+2016 101.99227 103.18719 102.07832 100.69574 102.71179
+2017 105.58361 109.24964 108.85461 108.98877 109.51455
+2018  96.91534  99.23628  97.74718  98.84842  97.51191
+2019  96.35181  95.84786  95.60789  97.43899  97.63489
+2020 117.31607 110.47487 112.61391 105.14702 106.07517
+2021 108.90653 109.40517 106.86158 103.24245 100.24417
+2022  89.51209  88.97569  87.24362  90.93959  93.30764
+2023  90.65683  93.76068  94.70606  98.79388 100.75663
+2024 104.99858 105.50773                              </code></pre>
 </div>
 </div>
 </div>
@@ -514,210 +602,31 @@
 <ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Raw Yaml</a></li><li><a href="#tabset-3-2">Yaml in R</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1">
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a></a><span class="fu">title</span><span class="kw">:</span></span>
-<span id="cb5-2"><a></a><span class="at">  </span><span class="fu">en</span><span class="kw">:</span><span class="at"> Adecco Swiss Job Market Index</span></span>
-<span id="cb5-3"><a></a><span class="at">  </span><span class="fu">de</span><span class="kw">:</span><span class="at"> Adecco Swiss Job Market Index</span></span>
-<span id="cb5-4"><a></a><span class="at">  </span><span class="fu">fr</span><span class="kw">:</span><span class="at"> Adecco Swiss Job Market Index</span></span>
-<span id="cb5-5"><a></a><span class="at">  </span><span class="fu">it</span><span class="kw">:</span><span class="at"> Adecco Swiss Job Market Index</span></span>
-<span id="cb5-6"><a></a><span class="fu">source.name</span><span class="kw">:</span></span>
-<span id="cb5-7"><a></a><span class="at">  </span><span class="fu">en</span><span class="kw">:</span><span class="at"> University of Zürich</span></span>
-<span id="cb5-8"><a></a><span class="at">  </span><span class="fu">de</span><span class="kw">:</span><span class="at"> Universität Zürich</span></span>
-<span id="cb5-9"><a></a><span class="at">  </span><span class="fu">fr</span><span class="kw">:</span><span class="at"> Université de Zurich</span></span>
-<span id="cb5-10"><a></a><span class="at">  </span><span class="fu">it</span><span class="kw">:</span><span class="at"> Università di Zurigo</span></span>
-<span id="cb5-11"><a></a><span class="fu">source.url</span><span class="kw">:</span></span>
-<span id="cb5-12"><a></a><span class="kw">-</span><span class="at"> http://www.stellenmarktmonitor.uzh.ch/en/indices/asjmi.html</span></span>
-<span id="cb5-13"><a></a><span class="fu">units</span><span class="kw">:</span></span>
-<span id="cb5-14"><a></a><span class="at">  </span><span class="fu">all</span><span class="kw">:</span></span>
-<span id="cb5-15"><a></a><span class="at">    </span><span class="fu">en</span><span class="kw">:</span><span class="at"> Index, Base Q1 2008=100</span></span>
-<span id="cb5-16"><a></a><span class="at">    </span><span class="fu">de</span><span class="kw">:</span><span class="at"> Index, Basis Q1 2008=100</span></span>
-<span id="cb5-17"><a></a><span class="at">    </span><span class="fu">fr</span><span class="kw">:</span><span class="at"> Indice, Base Q1 2008=100</span></span>
-<span id="cb5-18"><a></a><span class="at">    </span><span class="fu">it</span><span class="kw">:</span><span class="at"> Indice, Base Q1 2008=100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a></a><span class="fu">ch.kof.barometer</span><span class="kw">:</span></span>
+<span id="cb5-2"><a></a><span class="at">  </span><span class="fu">url</span><span class="kw">:</span><span class="at"> https://kof.ethz.ch/en/forecasts-and-indicators/indicators/kof-economic-barometer.html</span></span>
+<span id="cb5-3"><a></a><span class="at">  </span><span class="fu">source</span><span class="kw">:</span><span class="at"> KOF Swiss Economic Institute</span></span>
+<span id="cb5-4"><a></a><span class="at">  </span><span class="fu">country</span><span class="kw">:</span><span class="at"> Switzerland</span></span>
+<span id="cb5-5"><a></a><span class="at">  </span><span class="fu">dataset</span><span class="kw">:</span><span class="at"> KOF Economic Barometer</span></span>
+<span id="cb5-6"><a></a><span class="at">  </span><span class="fu">variable</span><span class="kw">:</span><span class="at"> KOF Economic Barometer</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-3-2">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>$title
-$title$en
-[1] "Adecco Swiss Job Market Index"
+<pre><code>$ch.kof.barometer
+$ch.kof.barometer$url
+[1] "https://kof.ethz.ch/en/forecasts-and-indicators/indicators/kof-economic-barometer.html"
 
-$title$de
-[1] "Adecco Swiss Job Market Index"
+$ch.kof.barometer$source
+[1] "KOF Swiss Economic Institute"
 
-$title$fr
-[1] "Adecco Swiss Job Market Index"
+$ch.kof.barometer$country
+[1] "Switzerland"
 
-$title$it
-[1] "Adecco Swiss Job Market Index"
+$ch.kof.barometer$dataset
+[1] "KOF Economic Barometer"
 
-
-$source.name
-$source.name$en
-[1] "University of Zürich"
-
-$source.name$de
-[1] "Universität Zürich"
-
-$source.name$fr
-[1] "Université de Zurich"
-
-$source.name$it
-[1] "Università di Zurigo"
-
-
-$source.url
-[1] "http://www.stellenmarktmonitor.uzh.ch/en/indices/asjmi.html"
-
-$units
-$units$all
-$units$all$en
-[1] "Index, Base Q1 2008=100"
-
-$units$all$de
-[1] "Index, Basis Q1 2008=100"
-
-$units$all$fr
-[1] "Indice, Base Q1 2008=100"
-
-$units$all$it
-[1] "Indice, Base Q1 2008=100"
-
-
-
-$aggregate
-$aggregate$all
-[1] "mean"
-
-
-$dim.order
-[1] "idx_type"
-
-$hierarchy
-$hierarchy$idx_type
-$hierarchy$idx_type$sch
-$hierarchy$idx_type$sch$pzua
-NULL
-
-$hierarchy$idx_type$sch$ins
-NULL
-
-$hierarchy$idx_type$sch$unw
-NULL
-
-
-$hierarchy$idx_type$scs
-NULL
-
-
-
-$labels
-$labels$dimnames
-$labels$dimnames$idx_type
-$labels$dimnames$idx_type$en
-[1] "Index"
-
-$labels$dimnames$idx_type$de
-[1] "Index"
-
-$labels$dimnames$idx_type$fr
-[1] "Indice"
-
-$labels$dimnames$idx_type$it
-[1] "Indice"
-
-
-
-$labels$idx_type
-$labels$idx_type$ins
-$labels$idx_type$ins$en
-NULL
-
-$labels$idx_type$ins$de
-[1] "Internet-Stellenportale"
-
-$labels$idx_type$ins$fr
-NULL
-
-$labels$idx_type$ins$it
-NULL
-
-
-$labels$idx_type$pzua
-$labels$idx_type$pzua$en
-NULL
-
-$labels$idx_type$pzua$de
-[1] "Presse (Zeitungen und Anzeiger)"
-
-$labels$idx_type$pzua$fr
-NULL
-
-$labels$idx_type$pzua$it
-NULL
-
-
-$labels$idx_type$sch
-$labels$idx_type$sch$en
-NULL
-
-$labels$idx_type$sch$de
-[1] "Schweiz"
-
-$labels$idx_type$sch$fr
-NULL
-
-$labels$idx_type$sch$it
-NULL
-
-
-$labels$idx_type$scs
-$labels$idx_type$scs$en
-NULL
-
-$labels$idx_type$scs$de
-[1] "Schweiz (saisonbereinigt)"
-
-$labels$idx_type$scs$fr
-NULL
-
-$labels$idx_type$scs$it
-NULL
-
-
-$labels$idx_type$unw
-$labels$idx_type$unw$en
-NULL
-
-$labels$idx_type$unw$de
-[1] "Unternehmens-Webseiten"
-
-$labels$idx_type$unw$fr
-NULL
-
-$labels$idx_type$unw$it
-NULL
-
-
-
-
-$details
-$details$en
-NULL
-
-$details$de
-[1] "Der Swiss Job Market Index (ASJMI) bildet die Entwicklung des Stellenangebots  −\n            die Zahl der öffentlich ausgeschriebenen Stellen − in der Schweiz ab.\n      Der Index setzt sich aus drei Teil-Indices zusammen, die über die Veränderung des Stellenangebots in der Presse, auf Unternehmens-Webseiten und auf Internet-Stellenportalen Aufschluss geben."
-
-$details$fr
-NULL
-
-$details$it
-NULL
-
-
-$utc.updated
-[1] "2024-10-09 11:41:25"
-
-$sha1
-[1] "zqq7zLlFl2RsfSKEA1bIHXyJ92g="</code></pre>
+$ch.kof.barometer$variable
+[1] "KOF Economic Barometer"</code></pre>
 </div>
 </div>
 </div>
@@ -728,7 +637,8 @@ $sha1
 <h2>Reality: Public Data Providers</h2>
 <!-- In reality, however, the data we use and get isnt perfect or this tidy. -->
 <!-- IMPORTANT: excel spreadsheets are fundamentally designed for human viewing, but not ideal to extract data when coding, thus, but bad if you want to use it in your research! -->
-<!-- these excel sheets, although visually appealing and readable, lack consistency and machine readability (?).  Think about it, the patterns and techniques used to clean one spreadsheet are very different for the next -->
+<!--  this data, as opposed to the data shown before, includes both descriptions and time series data-->
+<!-- NOT IDEAL FOR CODING: these excel sheets, although visually appealing and readable, lack consistency and machine readability (?).  Think about it, the patterns and techniques used to clean one spreadsheet are very different for the next -->
 <div class="panel-tabset">
 <ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Nominal Income</a></li><li><a href="#tabset-4-2">CPI</a></li><li><a href="#tabset-4-3">Import</a></li></ul>
 <div class="tab-content">
@@ -1304,9 +1214,7 @@ $ch.kof.barometer$variable
 <span id="cb11-2"><a></a>ts <span class="ot">&lt;-</span> <span class="fu">get_time_series</span>(<span class="st">"ch.kof.barometer"</span>)</span>
 <span id="cb11-3"><a></a>meta <span class="ot">&lt;-</span> <span class="fu">get_metadata</span>(<span class="st">"ch.kof.barometer"</span>)</span>
 <span id="cb11-4"><a></a><span class="co"># search for more keys of publicly available data</span></span>
-<span id="cb11-5"><a></a><span class="co"># https://ts-explorer.kof.ethz.ch/guest/2c579efb-e75e-46de-9f68-014f8cb603f6</span></span>
-<span id="cb11-6"><a></a><span class="fu">head</span>(ts)</span>
-<span id="cb11-7"><a></a><span class="fu">head</span>(meta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-5"><a></a><span class="co"># https://ts-explorer.kof.ethz.ch/guest/2c579efb-e75e-46de-9f68-014f8cb603f6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1315,10 +1223,12 @@ $ch.kof.barometer$variable
 <h2>Thank you for your attention!</h2>
 <p>If you are interested in working with us or if you have any questions:</p>
 <ul>
-<li>presentation &amp; code at: <a href="https://github.com/minnaheim/dh_guest_lecture">https://github.com/minnaheim/dh_guest_lecture</a></li>
+<li>source code: <a href="https://github.com/minnaheim/dh_guest_lecture">https://github.com/minnaheim/dh_guest_lecture</a></li>
+<li>slides: <a href="https://minnaheim.github.io/dh_guest_lecture/lecture.html">https://minnaheim.github.io/dh_guest_lecture/lecture.html</a></li>
 <li>find us at <a href="https://rseed.ch">rseed.ch</a></li>
 <li>contact me: <a href="mailto:heim@kof.ethz.ch">heim@kof.ethz.ch</a></li>
 </ul>
+<!-- go through slides and script example -->
 
 <div class="quarto-auto-generated-content">
 <p><img src="images/rseed-pos.png" class="slide-logo"></p>
