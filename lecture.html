@@ -1109,10 +1109,18 @@ $ch.kof.barometer$variable
 </section>
 <section id="r-package-api-wrapper-kofdata" class="slide level2">
 <h2>R Package API Wrapper: kofdata</h2>
+<!-- this code snippet shows how to handle data that comes from an Application Programming Interface, designed for machine to machine communication, this data is in a very digestable format for machines -->
 <div class="panel-tabset">
-<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Time Series Data</a></li><li><a href="#tabset-6-2">Metadata</a></li><li><a href="#tabset-6-3">Code</a></li></ul>
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Code</a></li><li><a href="#tabset-6-2">Time Series Data</a></li><li><a href="#tabset-6-3">Metadata</a></li></ul>
 <div class="tab-content">
 <div id="tabset-6-1">
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">library</span>(kofdata)</span>
+<span id="cb9-2"><a></a>ts <span class="ot">&lt;-</span> <span class="fu">get_time_series</span>(<span class="st">"ch.kof.barometer"</span>)</span>
+<span id="cb9-3"><a></a>meta <span class="ot">&lt;-</span> <span class="fu">get_metadata</span>(<span class="st">"ch.kof.barometer"</span>)</span>
+<span id="cb9-4"><a></a><span class="co"># search for more keys of publicly available data</span></span>
+<span id="cb9-5"><a></a><span class="co"># https://ts-explorer.kof.ethz.ch/guest/2c579efb-e75e-46de-9f68-014f8cb603f6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-6-2">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>$ch.kof.barometer
@@ -1189,7 +1197,7 @@ $ch.kof.barometer$variable
 </div>
 </div>
 </div>
-<div id="tabset-6-2">
+<div id="tabset-6-3">
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>$ch.kof.barometer
@@ -1209,13 +1217,6 @@ $ch.kof.barometer$variable
 [1] "KOF Economic Barometer"</code></pre>
 </div>
 </div>
-</div>
-<div id="tabset-6-3">
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">library</span>(kofdata)</span>
-<span id="cb11-2"><a></a>ts <span class="ot">&lt;-</span> <span class="fu">get_time_series</span>(<span class="st">"ch.kof.barometer"</span>)</span>
-<span id="cb11-3"><a></a>meta <span class="ot">&lt;-</span> <span class="fu">get_metadata</span>(<span class="st">"ch.kof.barometer"</span>)</span>
-<span id="cb11-4"><a></a><span class="co"># search for more keys of publicly available data</span></span>
-<span id="cb11-5"><a></a><span class="co"># https://ts-explorer.kof.ethz.ch/guest/2c579efb-e75e-46de-9f68-014f8cb603f6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
